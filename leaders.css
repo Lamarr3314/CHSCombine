@@ -9,11 +9,13 @@
     overflow: scroll;
 }
 #categories div {
-    border: 1px solid aliceblue;
+    border: 1px solid red;
     border-radius: 100px;
   font-family: "Golos Text", sans-serif;
   width: 200px;
   min-width: 200px;
   text-align: center;
   margin-right: 20px;
+  color: red;
+  background-color: black;
 }
