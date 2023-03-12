@@ -1,4 +1,5 @@
 #mainImage{
+  display: none;
   content: url("images/!!STOP\ REAL\ COMBINE\ SIGN.png");
 }
 #mainImage:hover{
@@ -6,8 +7,7 @@
   content: url("images/redSignLogo.png");
 }
 #registerImg{
-  transition: all 2s;
-  transform: translateY(-100px);
+  display: none;
   content: url("images/LeaderBoard\ \(6\).png");
 }
 #registerImg:hover{
@@ -15,11 +15,12 @@
   content: url("images/LeaderBoard\ \(13\).png");
 }
 #mainImage {
-  transition: all 100s;
+  display: none;
+  transition: all .5s;
+  transform: translateY(-130px);
   height: 140px;
   width: 101.14px;
   align-self: center;
-  transform: translateX(-20px);
 }
 #navBar {
   display: flex;
@@ -34,8 +35,7 @@ iframe {
   border-color: transparent;
 }
 #leaderboard img {
-  transition: all 2s;
-  transform: translateY(-100px);
+  display: none;
   width: 200px;
   height: 30px;
   margin-top: 55px;
