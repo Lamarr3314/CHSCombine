@@ -21,19 +21,16 @@ leaderboardImg.style.transform = "none";
 registerImg.style.transform = "none";
 mainImg.style.transform = "none";
 maxLastWidth = maxWidth;
-setTimeout(function() {
-  mainImg.style.display="flex";
-  registerImg.style.display="flex";
-  leaderboardImg.style.display="flex";
-}, .00000001);
-
+mainImg.style.display = "flex";
+registerImg.style.display = "flex";
+leaderboardImg.style.display = "flex";
 
 registerImg.onclick = function () {
-  window.location.href = "register.html";
+  window.location.href = "../register.html";
 };
 leaderboardImg.onclick = function () {
-  window.location.href = "leaders.html";
+  window.location.href = "../leaders.html";
 };
 mainImg.onclick = function () {
-  window.location.href = "index.html";
+  window.location.href = "../index.html";
 };
