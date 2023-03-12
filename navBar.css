@@ -6,6 +6,8 @@
   content: url("images/redSignLogo.png");
 }
 #registerImg{
+  transition: all 2s;
+  transform: translateY(-100px);
   content: url("images/LeaderBoard\ \(6\).png");
 }
 #registerImg:hover{
@@ -13,10 +15,11 @@
   content: url("images/LeaderBoard\ \(13\).png");
 }
 #mainImage {
+  transition: all 100s;
   height: 140px;
   width: 101.14px;
   align-self: center;
-  margin-left: -20px;
+  transform: translateX(-20px);
 }
 #navBar {
   display: flex;
@@ -31,6 +34,8 @@ iframe {
   border-color: transparent;
 }
 #leaderboard img {
+  transition: all 2s;
+  transform: translateY(-100px);
   width: 200px;
   height: 30px;
   margin-top: 55px;
@@ -42,11 +47,6 @@ iframe {
   cursor: grab;
   content: url("images/LeaderBoard\ \(8\).png");
 }
-
-/* #leaderboard img:hover {
-    cursor:grab;
-    content: url("images/LeaderBoard\ \(11\).png");
-  } */
 #register,
 #leaderboard {
   align-items: center;
@@ -55,7 +55,6 @@ iframe {
   text-align: center;
 }
 #register img {
-  /* width: 286; */
   height: 30px;
   margin-top: 55px;
   margin-left: auto;

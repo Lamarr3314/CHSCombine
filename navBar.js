@@ -17,6 +17,8 @@ window.addEventListener("load", function () {
   registerDiv.style.width = sideWidth + "px";
   registerDiv.style.marginLeft = (sideWidth - 184.55) / 2 + "px";
   leaderboardDiv.style.marginLeft = (sideWidth - 200) / 2 + "px";
+  leaderboardImg.style.transform="none";
+  registerImg.style.transform="none";
 });
 registerImg.onclick = function () {
   window.location.href = "/register.html";
