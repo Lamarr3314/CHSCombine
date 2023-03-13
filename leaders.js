@@ -1,12 +1,13 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-analytics.js";
-import { getDatabase } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-database.js";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js";
+import {
+  getDatabase,
+  ref,
+  set,
+  get,
+  child,
+} from "https://www.gstatic.com/firebasejs/9.6.11/firebase-database.js";
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// Paste the code from Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyA9UsGQb9CZrAf9L95tu_N5u0nqd0OJN2E",
   authDomain: "chscombine-246b6.firebaseapp.com",
@@ -20,16 +21,21 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-function writeUserData(userId, name, email, imageUrl) {
-  const db = getDatabase();
-  const reference = ref(db, "users/" + userId);
 
-  set(reference, {
-    username: name,
-    email: email,
-    profile_picture: imageUrl,
+// Get a reference to the database service
+const db = getDatabase(app);
+
+document
+  .getElementById("frmContact")
+  .addEventListener("submit", function (e) {
+    e.preventDefault();
+    set(ref(db, "users/" + Math.random().toString(36).slice(2, 7)), {
+      name: document.getElementById("fullname").value,
+      email: document.getElementById("email").value,
+      subject: document.getElementById("subject").value,
+      message: document.getElementById("message").value,
+    });
+
+    alert("Your form is submitted");
+    document.getElementById("frmContact").reset();
   });
-}
-
-writeUserData("an", "awa", "myelamioafe@me.com", "imageurl");
