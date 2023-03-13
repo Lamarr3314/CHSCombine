@@ -1,18 +1,18 @@
 #mainImage{
   display: none;
-  content: url("images/!!STOP\ REAL\ COMBINE\ SIGN.png");
+  content: url("../images/!!STOP\ REAL\ COMBINE\ SIGN.png");
 }
 #mainImage:hover{
   cursor: grab;
-  content: url("images/redSignLogo.png");
+  content: url("../images/redSignLogo.png");
 }
 #registerImg{
   display: none;
-  content: url("images/LeaderBoard\ \(6\).png");
+  content: url("../images/LeaderBoard\ \(6\).png");
 }
 #registerImg:hover{
   cursor:grab;
-  content: url("images/LeaderBoard\ \(13\).png");
+  content: url("../images/LeaderBoard\ \(13\).png");
 }
 #mainImage {
   display: none;
@@ -39,11 +39,11 @@ iframe {
   width: 200px;
   height: 30px;
   margin-top: 55px;
-  content: url("images/LeaderBoard\ \(7\).png");
+  content: url("../images/LeaderBoard\ \(7\).png");
 }
 #leaderboard img:hover {
   cursor: grab;
-  content: url("images/LeaderBoard\ \(8\).png");
+  content: url("../images/LeaderBoard\ \(8\).png");
 }
 #register,
 #leaderboard {
@@ -61,6 +61,6 @@ iframe {
   text-indent: -9999px;
   width: 100px;
   height: 82px;
-  background: url(images/LeaderBoard.svg);
+  background: url(../images/LeaderBoard.svg);
   background-size: 100px 82px;
 }

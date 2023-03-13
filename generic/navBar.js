@@ -26,11 +26,11 @@ registerImg.style.display = "flex";
 leaderboardImg.style.display = "flex";
 
 registerImg.onclick = function () {
-  window.location.href = "register.html";
+  window.location.href = "../../register/html/register.html";
 };
 leaderboardImg.onclick = function () {
   window.location.href = "leaders.html";
 };
 mainImg.onclick = function () {
-  window.location.href = "index.html";
+  window.location.href = "../../mainPage/html/index.html";
 };

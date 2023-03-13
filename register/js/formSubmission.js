@@ -25,17 +25,14 @@ const app = initializeApp(firebaseConfig);
 // Get a reference to the database service
 const db = getDatabase(app);
 
-document
-  .getElementById("frmContact")
-  .addEventListener("submit", function (e) {
-    e.preventDefault();
-    set(ref(db, "users/" + Math.random().toString(36).slice(2, 7)), {
-      name: document.getElementById("fullname").value,
-      email: document.getElementById("email").value,
-      subject: document.getElementById("subject").value,
-      message: document.getElementById("message").value,
-    });
-
-    alert("Your form is submitted");
-    document.getElementById("frmContact").reset();
+document.getElementById("frmContact").addEventListener("submit", function (e) {
+  e.preventDefault();
+  set(ref(db, "interested/" + Math.random().toString(36).slice(2, 7)), {
+    name: document.getElementById("name_bar").value,
+    grade: document.getElementById("grade_bar").value,
+    participation: document.getElementById("participation_bar").value,
   });
+
+  alert("Your form is submitted");
+  document.getElementById("frmContact").reset();
+});
