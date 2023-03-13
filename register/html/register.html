@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en" style="background-color: #1d1d16" ;>
   <head>
     <meta charset="UTF-8" />
@@ -37,7 +37,7 @@
       <div>
         <img src="../../images/Grade.png" alt="Grade" id="grade_image" />
       </div>
-      <!--../../images/Grade.png-->
+      ../../images/Grade.png
       <div class="glow-table">
         <input type="text" id="grade_bar" name="grade" />
       </div>
@@ -58,5 +58,121 @@
       </button>
     </form>
     <script type="module" src="../js/formSubmission.js"></script>
+  </body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en" style="background-color: #1d1d16" ;>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CHS Combine</title>
+    <link rel="icon" type="image/x-icon" href="images/JustHorseFAVICON.png" />
+    <link rel="stylesheet" href="navBar.css" />
+    <link rel="stylesheet" href="leaders.css" />
+    <script defer src="navBar.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cardo&family=Old+Standard+TT&family=Sono:wght@300&family=Urbanist:wght@300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="navBar">
+      <div id="register"><img alt="" id="registerImg" /></div>
+      <div id="mainImg">
+        <img alt="" id="mainImage" />
+      </div>
+      <div id="leaderboard"><img alt="" id="leaderboardImg" /></div>
+    </div>
+    <div id="categories">
+      <div id="c_class">
+        <button class="glow-on-hover"><h1>Class</h1></button>
+      </div>
+      <div id="c_pull_ups">
+        <button class="glow-on-hover"><h1>Pull Ups</h1></button>
+      </div>
+      <div id="c_dips">
+        <button class="glow-on-hover"><h1>Dips</h1></button>
+      </div>
+      <div id="c_push_ups">
+        <button class="glow-on-hover"><h1>Push Ups</h1></button>
+      </div>
+      <div id="c_40_yd">
+        <button class="glow-on-hover"><h1>40 yard</h1></button>
+      </div>
+      <div id="c_Individual">
+        <button class="glow-on-hover"><h1>Individual</h1></button>
+      </div>
+      <div id="c_shuttle">
+        <button class="glow-on-hover"><h1>Shuttle</h1></button>
+      </div>
+      <div id="c_drills">
+        <button class="glow-on-hover"><h1>Drills</h1></button>
+      </div>
+    </div>
+    <div class="glow-table">
+      <ol id="leaderboard">
+        <li id="one">Person 1</li>
+        <li id="two">Person 2</li>
+        <li id="three">Person 3</li>
+        <li id="four">Person 4</li>
+        <li id="five">Person 5</li>
+      </ol>
+    </div>
+    <form method="post" id="frmContact">
+      <p>
+        Fullname: <input type="text" name="fullname" id="fullname" required />
+      </p>
+      <p>Email: <input type="email" name="email" id="email" required /></p>
+      <p>Subject: <input type="text" name="subject" id="subject" /></p>
+      <p>Message: <textarea name="message" id="message"></textarea></p>
+      <button type="submit" name="submit">Submit</button>
+    </form>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js";
+      import {
+        getDatabase,
+        ref,
+        set,
+        get,
+        child,
+      } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-database.js";
+
+      // Paste the code from Firebase
+      const firebaseConfig = {
+        apiKey: "AIzaSyA9UsGQb9CZrAf9L95tu_N5u0nqd0OJN2E",
+        authDomain: "chscombine-246b6.firebaseapp.com",
+        databaseURL: "https://chscombine-246b6-default-rtdb.firebaseio.com",
+        projectId: "chscombine-246b6",
+        storageBucket: "chscombine-246b6.appspot.com",
+        messagingSenderId: "1052550959110",
+        appId: "1:1052550959110:web:965fade2cc8ec35bbff387",
+        measurementId: "G-2GHJ0PS9ZR",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+
+      // Get a reference to the database service
+      const db = getDatabase(app);
+
+      document
+        .getElementById("frmContact")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          set(ref(db, "users/" + Math.random().toString(36).slice(2, 7)), {
+            name: document.getElementById("fullname").value,
+            email: document.getElementById("email").value,
+            subject: document.getElementById("subject").value,
+            message: document.getElementById("message").value,
+          });
+
+          alert("Your form is submitted");
+          document.getElementById("frmContact").reset();
+        });
+    </script>
   </body>
 </html>
