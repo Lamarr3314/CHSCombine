@@ -26,7 +26,7 @@ registerImg.style.display = "flex";
 leaderboardImg.style.display = "flex";
 
 registerImg.onclick = function () {
-  window.location.href = "register/html/register.html";
+  window.location.href = "register\html\register.html";
 };
 leaderboardImg.onclick = function () {
   window.location.href = "leaders/html.leaders.html";
