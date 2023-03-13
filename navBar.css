@@ -39,8 +39,6 @@ iframe {
   width: 200px;
   height: 30px;
   margin-top: 55px;
-  margin-left: auto;
-  margin-right: auto;
   content: url("images/LeaderBoard\ \(7\).png");
 }
 #leaderboard img:hover {
@@ -57,8 +55,6 @@ iframe {
 #register img {
   height: 30px;
   margin-top: 55px;
-  margin-left: auto;
-  margin-right: auto;
 }
 .logo {
   display: block;

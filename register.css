@@ -14,7 +14,6 @@
   width: 200px;
   min-width: 200px;
   margin-right: 20px;
-  margin-top: 60px;
   margin-bottom: 30px;
 }
 #categories div button h1 {
@@ -51,14 +50,14 @@
   background: linear-gradient(
     45deg,
     /* #ff0000,
-    #ff7300,
-    #fffb00,
-    #48ff00,
-    #00ffd5,
-    #002bff,
-    #7a00ff,
-    #ff00c8,
-    #ff0000 */
+      #ff7300,
+      #fffb00,
+      #48ff00,
+      #00ffd5,
+      #002bff,
+      #7a00ff,
+      #ff00c8,
+      #ff0000 */
       #e85100,
     #e75100,
     #e77b00,
@@ -116,9 +115,9 @@
 }
 
 .glow-table {
-  margin-left: 10%;
-  width: 80%;
-  height: 310px;
+  margin-left: 30%;
+  width: 40%;
+  height: 50px;
   border: none;
   outline: none;
   color: #fff;
@@ -134,14 +133,14 @@
   background: linear-gradient(
     45deg,
     /* #ff0000,
-    #ff7300,
-    #fffb00,
-    #48ff00,
-    #00ffd5,
-    #002bff,
-    #7a00ff,
-    #ff00c8,
-    #ff0000 */
+      #ff7300,
+      #fffb00,
+      #48ff00,
+      #00ffd5,
+      #002bff,
+      #7a00ff,
+      #ff00c8,
+      #ff0000 */
       #e85100,
     #e75100,
     #e77b00,
@@ -197,86 +196,47 @@
     background-position: 0 0;
   }
 }
-
-.glow-table div {
-  margin-left: 10%;
-  width: 30px;
-  height: 30px;
+#name_bar,
+#participation_bar,
+#grade_bar {
+  width: 98%;
+  background-color: transparent;
+  height: 50px;
+  border: none;
+  margin: 0;
+  margin-left: 3px;
+  text-align: center;
+  font-size: 28px;
+  color: #e77b00;
+  font-family: "Cardo", sans-serif;
+}
+#name_bar:focus,
+#grade_bar:focus,
+#participation_bar:focus {
   border: none;
   outline: none;
-  color: #fff;
-  background: #1d1d16;
-  cursor: pointer;
-  position: relative;
-  z-index: 0;
-  border-radius: 10px;
 }
-
-.glow-table div:before {
-  content: "";
-  background: linear-gradient(
-    45deg,
-    /* #ff0000,
-    #ff7300,
-    #fffb00,
-    #48ff00,
-    #00ffd5,
-    #002bff,
-    #7a00ff,
-    #ff00c8,
-    #ff0000 */
-      #e85100,
-    #e75100,
-    #e77b00,
-    #e7a200,
-    #e7a600,
-    #c4e700,
-    #e86800,
-    #e78700,
-    #e77000e8
-  );
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  background-size: 400%;
-  z-index: -1;
-  filter: blur(5px);
-  width: calc(100% + 4px);
-  height: calc(100% + 4px);
-  animation: glowing 20s linear infinite;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  border-radius: 10px;
+#name_image {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 150px;
+  height: 50px;
 }
-
-.glow-table div:active {
-  color: #1d1d16;
+.glow-table {
+  margin-top: 20px;
 }
-
-.glow-table div:before {
-  opacity: 1;
+#grade_image {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  height: 40px;
 }
-
-.glow-table div:after {
-  z-index: -1;
-  content: "";
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  background: #1d1d16;
-  left: 0;
-  top: 0;
-  border-radius: 10px;
-}
-
-@keyframes glowing {
-  0% {
-    background-position: 0 0;
-  }
-  50% {
-    background-position: 400% 0;
-  }
-  100% {
-    background-position: 0 0;
-  }
+#participation_image {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  height: 40px;
 }
