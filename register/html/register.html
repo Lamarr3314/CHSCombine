@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../css/registerButton.css" />
     <link rel="stylesheet" href="../../generic/navBar.css" />
     <link rel="stylesheet" href="../css/register.css" />
-    <script defer src="../../generic/navBar.js"></script>
+    <script defer src="../../generic/nonIndexNavBar.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -94,7 +94,7 @@
             grade: document.getElementById("grade_bar").value,
             participation: document.getElementById("participation_bar").value,
           });
-          alert(get(db, "interested/"))
+          alert(get(db, "interested/"));
           alert("Your form is submitted");
           document.getElementById("frmContact").reset();
         });

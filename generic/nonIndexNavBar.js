@@ -32,5 +32,5 @@ leaderboardImg.onclick = function () {
   window.location.href = "leaders.html";
 };
 mainImg.onclick = function () {
-  window.location.href = "../../mainPage/html/index.html";
+  window.location.href = "../../index.html";
 };
