@@ -16,7 +16,7 @@ const futureTime = startTime + setTime;
 
 const timerLoop = setInterval(countDownTimer);
 startButton.onclick = function () {
-  countDownTimer();
+  // countDownTimer();
 };
 
 function countDownTimer() {
