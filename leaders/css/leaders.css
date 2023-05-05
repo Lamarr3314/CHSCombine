@@ -303,3 +303,13 @@
   right: 0;
   top: 160px;
 }
+#genderBox{
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+#gender{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
