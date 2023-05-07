@@ -240,3 +240,38 @@
   margin-top: 40px;
   height: 40px;
 }
+
+@media only screen and (max-width: 600px) {
+  .glow-table {
+    width: 95%;
+    margin-left: 3%;
+  }
+  .glowing-btn {
+    margin-left: 5%;
+    width: 90%;
+  }
+  #name_image,
+  #participation_image {
+    height: 35px;
+  }
+}
+#gender {
+  width: 100%;
+  border-radius: 9px;
+  height: 100%;
+  text-align: center;
+  background: #1d1d16;
+  color: white;
+  border: none;
+  font-size: 28px;
+  color: #e77b00;
+  font-family: "Cardo", sans-serif;
+}
+
+#gender:active, select:hover{
+  outline: none;
+}
+
+#gender option{
+  height: 200px;
+}

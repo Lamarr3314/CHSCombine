@@ -64,3 +64,14 @@ iframe {
   background: url(../images/LeaderBoard.svg);
   background-size: 100px 82px;
 }
+
+@media only screen and (max-width: 600px) {
+  #register img {
+    height: 17px;
+  }
+  #leaderboard img{
+    width: 91px;
+    height: 16px;
+    margin-left: 45px;
+  }
+}
