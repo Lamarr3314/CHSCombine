@@ -271,7 +271,3 @@
 #gender:active, select:hover{
   outline: none;
 }
-
-#gender option{
-  height: 200px;
-}
