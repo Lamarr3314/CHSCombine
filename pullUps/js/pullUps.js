@@ -11,12 +11,18 @@ const hours = hr * 360000;
 const minutes = min * 60000;
 const seconds = sec * 1000;
 const setTime = hours + minutes + seconds;
-const startTime = Date.now();
-const futureTime = startTime + setTime;
 
-const timerLoop = setInterval(countDownTimer);
+let futureTime;
+let startTime;
+let timerLoop;
+
+
 startButton.onclick = function () {
-  // countDownTimer();
+  countDownTimer();
+  startTime = Date.now();
+  timerLoop = setInterval(countDownTimer);
+  futureTime = startTime + setTime;
+  console.log("clicked");
 };
 
 function countDownTimer() {
