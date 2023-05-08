@@ -405,7 +405,7 @@ select:hover {
     position: relative;
     z-index: 0;
     border-radius: 10px;
-    margin-top: -50px;
+    margin-top: -43px;
   }
   #genderBox {
     margin-left: 5%;
@@ -415,7 +415,8 @@ select:hover {
     width: 90%;
   }
   #gender {
-    width: 90%;
+    /* width: 90%;*/
+    margin-left: 35%;
   }
 }
 #genderBox {
@@ -607,9 +608,6 @@ select:hover {
   .glow-select:before {
     width: 90%;
   }
-  #gender {
-    width: 90%;
-  }
 }
 #board::-webkit-scrollbar {
   display: none;
@@ -629,7 +627,7 @@ select:hover {
   flex-direction: row;
   justify-content: space-around;
   width: 100%;
-
+  margin-top: -10px;
   text-align: center;
 }
 #miniNav {
@@ -638,6 +636,10 @@ select:hover {
   background-color: #1d1d16;
   z-index: 100;
   border-radius: 10px;
+  margin-top: -1px;
+}
+#gender p{
+  font-size: 10px;
 }
 #leaders div {
   display: flex;
@@ -651,10 +653,11 @@ select:hover {
   text-align: center;
 }
 #space {
-  height: 100px;
+  height: 39px;
 }
 #gender{
   height: 30px;
+  font-size: 18px;
 }
 .glow-leader {
   width: 80%;
