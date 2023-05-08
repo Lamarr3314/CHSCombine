@@ -29,7 +29,7 @@ registerImg.onclick = function () {
   window.location.href = "../../register/html/register.html";
 };
 leaderboardImg.onclick = function () {
-  window.location.href = "leaders.html";
+  window.location.href = "../../leaders/html/leaders.html";
 };
 mainImg.onclick = function () {
   window.location.href = "../../index.html";
