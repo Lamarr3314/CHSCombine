@@ -6,7 +6,7 @@ html {
   overflow-x: hidden;
 }
 #categories {
-  margin-top: 100px;
+  margin-top: 75px;
   display: flex;
   overflow: scroll;
 }
@@ -125,14 +125,14 @@ html {
   border: none;
   outline: none;
   color: #fff;
-  background: #1d1d16;
+  background: #e78700;
   cursor: pointer;
   position: relative;
   z-index: 0;
   border-radius: 10px;
 }
 
-.glow-table:before {
+/* /* .glow-table:before {
   content: "";
   background: linear-gradient(
     45deg,
@@ -144,7 +144,7 @@ html {
     #002bff,
     #7a00ff,
     #ff00c8,
-    #ff0000 */
+    #ff0000 
       #e85100,
     #e75100,
     #e77b00,
@@ -157,7 +157,7 @@ html {
   );
   position: absolute;
   top: -2px;
-  left: -2px;
+   left: -2px;
   background-size: 400%;
   z-index: -1;
   filter: blur(5px);
@@ -166,8 +166,7 @@ html {
   animation: glowing 20s linear infinite;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
-  border-radius: 10px;
-}
+  border-radius: 10px; }*/
 
 .glow-table:active {
   color: #1d1d16;
@@ -188,7 +187,6 @@ html {
   top: 0;
   border-radius: 10px;
 }
-
 @keyframes glowing {
   0% {
     background-position: 0 0;
@@ -227,13 +225,13 @@ html {
   transform: rotate(180deg);
   position: fixed;
   z-index: 105;
-  top: 160px;
+  top: 139px;
 }
 #arrow_right {
   position: fixed;
   z-index: 105;
   right: 0;
-  top: 160px;
+  top: 139px;
 }
 /* .glow-table div div {
   display: flex;
@@ -350,86 +348,38 @@ html {
   height: 50px;
   border: none;
   outline: none;
-  color: #fff;
   background: #1d1d16;
   cursor: pointer;
   position: relative;
   z-index: 0;
   border-radius: 10px;
 }
-
-.glow-select:before {
-  content: "";
-  background: linear-gradient(
-    45deg,
-    /* #ff0000,
-      #ff7300,
-      #fffb00,
-      #48ff00,
-      #00ffd5,
-      #002bff,
-      #7a00ff,
-      #ff00c8,
-      #ff0000 */
-      #e85100,
-    #e75100,
-    #e77b00,
-    #e7a200,
-    #e7a600,
-    #c4e700,
-    #e86800,
-    #e78700,
-    #e77000e8
-  );
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  background-size: 400%;
-  z-index: -1;
-  filter: blur(5px);
-  width: calc(100% + 4px);
-  height: calc(100% + 4px);
-  animation: glowing 20s linear infinite;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  border-radius: 10px;
-}
-
-.glow-select:active {
-  color: #1d1d16;
-}
-
-.glow-select:before {
-  opacity: 1;
-}
-
-.glow-select:after {
-  z-index: -1;
-  content: "";
-  position: absolute;
-  width: 50%;
-  height: 100%;
-  background: #1d1d16;
-  left: 0;
-  top: 0;
-  border-radius: 10px;
+.glow-select:focus {
+  border: none;
+  outline: none;
 }
 
 #gender {
-  width: 50%;
   border-radius: 9px;
-  height: 100%;
+  height: 30px;
   text-align: center;
   background: #1d1d16;
   color: white;
-  border: none;
+  border: 1px solid #e75100;
   font-size: 28px;
   color: #e77b00;
   font-family: "Cardo", sans-serif;
 }
+#gender p{
+  margin-bottom: 1000px;
+}
+#gender:focus {
+  outline: none;
+}
 
 #genderBox {
-  margin-left: 25%;
+  margin-left: 46%;
+  margin-top: -20px;
 }
 
 #gender:active,
@@ -438,15 +388,14 @@ select:hover {
 }
 
 #gender option {
-  height: 200px;
+  height: 220px;
 }
 .glow-select:before {
   width: 50%;
 }
 @media (max-width: 600px) {
   .glow-table {
-    margin-left: 2.5%;
-    width: 95%;
+    width: 100%;
     height: 310px;
     border: none;
     outline: none;
@@ -456,6 +405,7 @@ select:hover {
     position: relative;
     z-index: 0;
     border-radius: 10px;
+    margin-top: -50px;
   }
   #genderBox {
     margin-left: 5%;
@@ -473,6 +423,7 @@ select:hover {
   width: 100%;
   align-items: center;
 }
+
 #gender {
   display: flex;
   justify-content: center;
@@ -529,14 +480,6 @@ select:hover {
   border-radius: 100px;
 }
 
-.glow-on-hover:active {
-  color: #1d1d16;
-}
-
-.glow-on-hover:hover:before {
-  opacity: 1;
-}
-
 .glow-on-hover:after {
   z-index: -1;
   content: "";
@@ -561,7 +504,7 @@ select:hover {
   }
 }
 
-.glow-select {
+/* .glow-select {
   width: 40%;
   height: 50px;
   border: none;
@@ -572,9 +515,9 @@ select:hover {
   position: relative;
   z-index: 0;
   border-radius: 10px;
-}
+} */
 
-.glow-select:before {
+/* .glow-select:before {
   content: "";
   background: linear-gradient(
     45deg,
@@ -587,7 +530,7 @@ select:hover {
       #7a00ff,
       #ff00c8,
       #ff0000 */
-      #e85100,
+#e85100,
     #e75100,
     #e77b00,
     #e7a200,
@@ -596,7 +539,7 @@ select:hover {
     #e86800,
     #e78700,
     #e77000e8
-  );
+  /* );
   position: absolute;
   top: -2px;
   left: -2px;
@@ -608,8 +551,7 @@ select:hover {
   animation: glowing 20s linear infinite;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
-  border-radius: 10px;
-}
+  border-radius: 10px; }*/
 
 .glow-select:active {
   color: #1d1d16;
@@ -619,7 +561,7 @@ select:hover {
   opacity: 1;
 }
 
-.glow-select:after {
+/* .glow-select:after {
   z-index: -1;
   content: "";
   position: absolute;
@@ -630,24 +572,8 @@ select:hover {
   top: 0;
   border-radius: 10px;
   display: flex;
-}
+} */
 
-#gender {
-  width: 50%;
-  border-radius: 9px;
-  height: 100%;
-  text-align: center;
-  background: #1d1d16;
-  color: white;
-  border: none;
-  font-size: 28px;
-  color: #e77b00;
-  font-family: "Cardo", sans-serif;
-}
-
-#genderBox {
-  margin-left: 25%;
-}
 
 #gender:active,
 select:hover {
@@ -685,13 +611,15 @@ select:hover {
     width: 90%;
   }
 }
-
+#board::-webkit-scrollbar {
+  display: none;
+}
 #board {
   height: 310px;
   overflow-y: scroll;
   overflow-x: hidden;
 }
-#scorer{
+#scorer {
   border: 1px solid blue;
   border-radius: 100px;
   margin-bottom: 20px;
@@ -701,21 +629,98 @@ select:hover {
   flex-direction: row;
   justify-content: space-around;
   width: 100%;
+
   text-align: center;
 }
-#miniNav{
+#miniNav {
   position: absolute;
   width: 100%;
   background-color: #1d1d16;
+  z-index: 100;
   border-radius: 10px;
 }
-#leaders div{
+#leaders div {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  width: 100%;
+  width: 92%;
+  margin-left: 4%;
 }
-#leaders div div{
+#leaders div div {
   width: 25%;
   text-align: center;
+}
+#space {
+  height: 100px;
+}
+#gender{
+  height: 30px;
+}
+.glow-leader {
+  width: 80%;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #1d1d16;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+}
+
+.glow-leader:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    /* #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000 */
+      #e85100,
+    #e75100,
+    #e77b00,
+    #e7a200,
+    #e7a600,
+    #c4e700,
+    #e86800,
+    #e78700,
+    #e77000e8
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.glow-leader:active {
+  color: #1d1d16;
+}
+
+.glow-leader:before {
+  opacity: 1;
+}
+
+.glow-leader:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #1d1d16;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
 }
