@@ -201,7 +201,6 @@ html {
   }
 }
 
-
 @keyframes glowing {
   0% {
     background-position: 0 0;
@@ -236,22 +235,238 @@ html {
   right: 0;
   top: 160px;
 }
-.glow-table div div{
+/* .glow-table div div {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-}
-.glow-table div div div{
+} */
+.glow-table div div div {
   width: 200px;
 }
-#board{
+#board {
   height: 310px;
   overflow-y: scroll;
 }
-#scorer{
+#scorer {
   border: 1px solid red;
   border-radius: 100px;
   margin-bottom: 20px;
+}
+#genderBox {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+#gender {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.glow-on-hover {
+  width: 220px;
+  height: 40px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #1d1d16;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 100px;
+}
+
+.glow-on-hover:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    /* #ff0000,
+      #ff7300,
+      #fffb00,
+      #48ff00,
+      #00ffd5,
+      #002bff,
+      #7a00ff,
+      #ff00c8,
+      #ff0000 */
+      #e85100,
+    #e75100,
+    #e77b00,
+    #e7a200,
+    #e7a600,
+    #c4e700,
+    #e86800,
+    #e78700,
+    #e77000e8
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 100px;
+}
+
+.glow-on-hover:active {
+  color: #1d1d16;
+}
+
+.glow-on-hover:hover:before {
+  opacity: 1;
+}
+
+.glow-on-hover:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #1d1d16;
+  left: 0;
+  top: 0;
+  border-radius: 100px;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.glow-select {
+  width: 40%;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #1d1d16;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+}
+
+.glow-select:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    /* #ff0000,
+      #ff7300,
+      #fffb00,
+      #48ff00,
+      #00ffd5,
+      #002bff,
+      #7a00ff,
+      #ff00c8,
+      #ff0000 */
+      #e85100,
+    #e75100,
+    #e77b00,
+    #e7a200,
+    #e7a600,
+    #c4e700,
+    #e86800,
+    #e78700,
+    #e77000e8
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.glow-select:active {
+  color: #1d1d16;
+}
+
+.glow-select:before {
+  opacity: 1;
+}
+
+.glow-select:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  background: #1d1d16;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+#gender {
+  width: 50%;
+  border-radius: 9px;
+  height: 100%;
+  text-align: center;
+  background: #1d1d16;
+  color: white;
+  border: none;
+  font-size: 28px;
+  color: #e77b00;
+  font-family: "Cardo", sans-serif;
+}
+
+#genderBox {
+  margin-left: 25%;
+}
+
+#gender:active,
+select:hover {
+  outline: none;
+}
+
+#gender option {
+  height: 200px;
+}
+.glow-select:before {
+  width: 50%;
+}
+@media (max-width: 600px) {
+  .glow-table {
+    margin-left: 2.5%;
+    width: 95%;
+    height: 310px;
+    border: none;
+    outline: none;
+    color: rgb(255, 255, 255);
+    background: rgb(29, 29, 22);
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+  }
+  #genderBox {
+    margin-left: 5%;
+    margin-bottom: 50px;
+  }
+  .glow-select:before {
+    width: 90%;
+  }
+  #gender {
+    width: 90%;
+  }
 }
 #genderBox {
   display: flex;
@@ -466,244 +681,41 @@ select:hover {
   .glow-select:before {
     width: 90%;
   }
-  #gender{
+  #gender {
     width: 90%;
   }
-  
-}
-#genderBox {
-  display: flex;
-  width: 100%;
-  align-items: center;
-}
-#gender {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-.glow-on-hover {
-  width: 220px;
-  height: 40px;
-  border: none;
-  outline: none;
-  color: #fff;
-  background: #1d1d16;
-  cursor: pointer;
-  position: relative;
-  z-index: 0;
+#board {
+  height: 310px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+#scorer{
+  border: 1px solid blue;
   border-radius: 100px;
+  margin-bottom: 20px;
 }
-
-.glow-on-hover:before {
-  content: "";
-  background: linear-gradient(
-    45deg,
-    /* #ff0000,
-      #ff7300,
-      #fffb00,
-      #48ff00,
-      #00ffd5,
-      #002bff,
-      #7a00ff,
-      #ff00c8,
-      #ff0000 */
-      #e85100,
-    #e75100,
-    #e77b00,
-    #e7a200,
-    #e7a600,
-    #c4e700,
-    #e86800,
-    #e78700,
-    #e77000e8
-  );
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  background-size: 400%;
-  z-index: -1;
-  filter: blur(5px);
-  width: calc(100% + 4px);
-  height: calc(100% + 4px);
-  animation: glowing 20s linear infinite;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  border-radius: 100px;
-}
-
-.glow-on-hover:active {
-  color: #1d1d16;
-}
-
-.glow-on-hover:hover:before {
-  opacity: 1;
-}
-
-.glow-on-hover:after {
-  z-index: -1;
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: #1d1d16;
-  left: 0;
-  top: 0;
-  border-radius: 100px;
-}
-
-@keyframes glowing {
-  0% {
-    background-position: 0 0;
-  }
-  50% {
-    background-position: 400% 0;
-  }
-  100% {
-    background-position: 0 0;
-  }
-}
-
-.glow-select {
-  width: 40%;
-  height: 50px;
-  border: none;
-  outline: none;
-  color: #fff;
-  background: #1d1d16;
-  cursor: pointer;
-  position: relative;
-  z-index: 0;
-  border-radius: 10px;
-}
-
-.glow-select:before {
-  content: "";
-  background: linear-gradient(
-    45deg,
-    /* #ff0000,
-      #ff7300,
-      #fffb00,
-      #48ff00,
-      #00ffd5,
-      #002bff,
-      #7a00ff,
-      #ff00c8,
-      #ff0000 */
-      #e85100,
-    #e75100,
-    #e77b00,
-    #e7a200,
-    #e7a600,
-    #c4e700,
-    #e86800,
-    #e78700,
-    #e77000e8
-  );
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  background-size: 400%;
-  z-index: -1;
-  filter: blur(5px);
-  width: calc(100% + 4px);
-  height: calc(100% + 4px);
-  animation: glowing 20s linear infinite;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  border-radius: 10px;
-}
-
-.glow-select:active {
-  color: #1d1d16;
-}
-
-.glow-select:before {
-  opacity: 1;
-}
-
-.glow-select:after {
-  z-index: -1;
-  content: "";
-  position: absolute;
-  width: 50%;
-  height: 100%;
-  background: #1d1d16;
-  left: 0;
-  top: 0;
-  border-radius: 10px;
-  display: flex;
-}
-
-#gender {
-  width: 50%;
-  border-radius: 9px;
-  height: 100%;
-  text-align: center;
-  background: #1d1d16;
-  color: white;
-  border: none;
-  font-size: 28px;
-  color: #e77b00;
-  font-family: "Cardo", sans-serif;
-}
-
-#genderBox {
-  margin-left: 25%;
-}
-
-#gender:active,
-select:hover {
-  outline: none;
-}
-
-#gender option {
-  height: 200px;
-}
-.glow-select:before {
-  width: 50%;
-}
-@media (max-width: 600px) {
-  .glow-table {
-    margin-left: 2.5%;
-    width: 95%;
-    height: 310px;
-    border: none;
-    outline: none;
-    color: rgb(255, 255, 255);
-    background: rgb(29, 29, 22);
-    cursor: pointer;
-    position: relative;
-    z-index: 0;
-    border-radius: 10px;
-  }
-  #genderBox {
-    margin-left: 5%;
-    margin-bottom: 50px;
-  }
-  .glow-select:before {
-    width: 90%;
-  }
-  #gender{
-    width: 90%;
-  }
-  
-}
-
-.glow-table div div{
+#miniNav div {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  width: 100%;
+  text-align: center;
 }
-.glow-table div div div{
-  width: 200px;
+#miniNav{
+  position: absolute;
+  width: 100%;
+  background-color: #1d1d16;
+  border-radius: 10px;
 }
-#board{
-  height: 310px;
-  overflow-y: scroll;
+#leaders div{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
 }
-#scorer{
-  border: 1px solid red;
-  border-radius: 100px;
-  margin-bottom: 20px;
+#leaders div div{
+  width: 25%;
+  text-align: center;
 }
