@@ -198,76 +198,6 @@
   }
 }
 
-.glow-table div {
-  margin-left: 10%;
-  width: 30px;
-  height: 30px;
-  border: none;
-  outline: none;
-  color: #fff;
-  background: #1d1d16;
-  cursor: pointer;
-  position: relative;
-  z-index: 0;
-  border-radius: 10px;
-}
-
-.glow-table div:before {
-  content: "";
-  background: linear-gradient(
-    45deg,
-    /* #ff0000,
-    #ff7300,
-    #fffb00,
-    #48ff00,
-    #00ffd5,
-    #002bff,
-    #7a00ff,
-    #ff00c8,
-    #ff0000 */
-      #e85100,
-    #e75100,
-    #e77b00,
-    #e7a200,
-    #e7a600,
-    #c4e700,
-    #e86800,
-    #e78700,
-    #e77000e8
-  );
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  background-size: 400%;
-  z-index: -1;
-  filter: blur(5px);
-  width: calc(100% + 4px);
-  height: calc(100% + 4px);
-  animation: glowing 20s linear infinite;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  border-radius: 10px;
-}
-
-.glow-table div:active {
-  color: #1d1d16;
-}
-
-.glow-table div:before {
-  opacity: 1;
-}
-
-.glow-table div:after {
-  z-index: -1;
-  content: "";
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  background: #1d1d16;
-  left: 0;
-  top: 0;
-  border-radius: 10px;
-}
 
 @keyframes glowing {
   0% {
@@ -302,4 +232,21 @@
   z-index: 105;
   right: 0;
   top: 160px;
+}
+.glow-table div div{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.glow-table div div div{
+  width: 200px;
+}
+#board{
+  height: 310px;
+  overflow-y: scroll;
+}
+#scorer{
+  border: 1px solid red;
+  border-radius: 100px;
+  margin-bottom: 20px;
 }
