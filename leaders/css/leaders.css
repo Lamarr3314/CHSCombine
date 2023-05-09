@@ -2,13 +2,15 @@
   margin-top: 0px;
   margin-bottom: 0px;
 }
-html {
-  overflow-x: hidden;
+body {
+  overflow-x: clip;
+  overflow-y: clip;
 }
 #categories {
   margin-top: 75px;
   display: flex;
   overflow: scroll;
+  scroll-snap-type: x mandatory;
 }
 #categories::-webkit-scrollbar {
   display: none;
@@ -19,6 +21,7 @@ html {
   margin-right: 20px;
   margin-top: 60px;
   margin-bottom: 30px;
+  scroll-snap-align: center;
 }
 #categories div button h1 {
   width: 200px;
@@ -35,18 +38,6 @@ html {
 }
 #categories div button:hover {
   cursor: grab;
-}
-.glow-on-hover {
-  width: 220px;
-  height: 40px;
-  border: none;
-  outline: none;
-  color: #fff;
-  background: #1d1d16;
-  cursor: pointer;
-  position: relative;
-  z-index: 0;
-  border-radius: 100px;
 }
 
 .glow-on-hover:before {
@@ -88,10 +79,6 @@ html {
 
 .glow-on-hover:active {
   color: #1d1d16;
-}
-
-.glow-on-hover:hover:before {
-  opacity: 1;
 }
 
 .glow-on-hover:after {
@@ -242,7 +229,6 @@ html {
   width: 200px;
 }
 #board {
-  height: 310px;
   overflow-y: scroll;
 }
 #scorer {
@@ -274,7 +260,7 @@ html {
   border-radius: 100px;
 }
 
-.glow-on-hover:before {
+.glow-on-hover:checked {
   content: "";
   background: linear-gradient(
     45deg,
@@ -317,7 +303,7 @@ html {
 
 .glow-on-hover:hover:before {
   opacity: 1;
-}
+} 
 
 .glow-on-hover:after {
   z-index: -1;
@@ -370,7 +356,7 @@ html {
   color: #e77b00;
   font-family: "Cardo", sans-serif;
 }
-#gender p{
+#gender p {
   margin-bottom: 1000px;
 }
 #gender:focus {
@@ -444,55 +430,6 @@ select:hover {
   border-radius: 100px;
 }
 
-.glow-on-hover:before {
-  content: "";
-  background: linear-gradient(
-    45deg,
-    /* #ff0000,
-      #ff7300,
-      #fffb00,
-      #48ff00,
-      #00ffd5,
-      #002bff,
-      #7a00ff,
-      #ff00c8,
-      #ff0000 */
-      #e85100,
-    #e75100,
-    #e77b00,
-    #e7a200,
-    #e7a600,
-    #c4e700,
-    #e86800,
-    #e78700,
-    #e77000e8
-  );
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  background-size: 400%;
-  z-index: -1;
-  filter: blur(5px);
-  width: calc(100% + 4px);
-  height: calc(100% + 4px);
-  animation: glowing 20s linear infinite;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  border-radius: 100px;
-}
-
-.glow-on-hover:after {
-  z-index: -1;
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: #1d1d16;
-  left: 0;
-  top: 0;
-  border-radius: 100px;
-}
-
 @keyframes glowing {
   0% {
     background-position: 0 0;
@@ -504,55 +441,6 @@ select:hover {
     background-position: 0 0;
   }
 }
-
-/* .glow-select {
-  width: 40%;
-  height: 50px;
-  border: none;
-  outline: none;
-  color: #fff;
-  background: #1d1d16;
-  cursor: pointer;
-  position: relative;
-  z-index: 0;
-  border-radius: 10px;
-} */
-
-/* .glow-select:before {
-  content: "";
-  background: linear-gradient(
-    45deg,
-    /* #ff0000,
-      #ff7300,
-      #fffb00,
-      #48ff00,
-      #00ffd5,
-      #002bff,
-      #7a00ff,
-      #ff00c8,
-      #ff0000 */
-#e85100,
-    #e75100,
-    #e77b00,
-    #e7a200,
-    #e7a600,
-    #c4e700,
-    #e86800,
-    #e78700,
-    #e77000e8
-  /* );
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  background-size: 400%;
-  z-index: -1;
-  filter: blur(5px);
-  width: calc(100% + 4px);
-  height: calc(100% + 4px);
-  animation: glowing 20s linear infinite;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  border-radius: 10px; }*/
 
 .glow-select:active {
   color: #1d1d16;
@@ -574,7 +462,6 @@ select:hover {
   border-radius: 10px;
   display: flex;
 } */
-
 
 #gender:active,
 select:hover {
@@ -613,7 +500,6 @@ select:hover {
   display: none;
 }
 #board {
-  height: 310px;
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -626,7 +512,7 @@ select:hover {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  width: 100%;
+  width: 92%;
   margin-top: -10px;
   text-align: center;
 }
@@ -635,10 +521,10 @@ select:hover {
   width: 100%;
   background-color: #1d1d16;
   z-index: 100;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   margin-top: -1px;
 }
-#gender p{
+#gender p {
   font-size: 10px;
 }
 #leaders div {
@@ -655,7 +541,7 @@ select:hover {
 #space {
   height: 39px;
 }
-#gender{
+#gender {
   height: 30px;
   font-size: 18px;
 }
@@ -665,6 +551,7 @@ select:hover {
   outline: none;
   color: #fff;
   background: #1d1d16;
+  /* background: #e75100; */
   cursor: pointer;
   position: relative;
   z-index: 0;
@@ -723,7 +610,29 @@ select:hover {
   width: 100%;
   height: 100%;
   background: #1d1d16;
+  /* background: #e75100;  */
   left: 0;
   top: 0;
   border-radius: 10px;
+}
+.glow-leader p {
+  /* color: #1d1d16; */
+  font-family: "Cardo", sans-serif;
+}
+#rank {
+  margin-left: -10px;
+}
+#direct {
+  width: 94%;
+  margin-left: 4%;
+  margin-right: 4%;
+  border-bottom: 1px solid #e75100;
+}
+#direct p{
+  color: #e75100;
+}
+@media (min-width: 750px) {
+  #direct {
+    margin-right: 100px;
+  }
 }
