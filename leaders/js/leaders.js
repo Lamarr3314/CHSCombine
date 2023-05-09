@@ -45,8 +45,9 @@ for (let i = 0; i < buttonList.length; i++) {
 }
 function showNormal(events, gender) {
   let pathway = url;
-  if (events == "overall") {
+  if (events == "Overall") {
     pathway += "filterLeaderGender/" + gender;
+    console.log(gender);
     displayUsers(pathway);
   } else if (events == "search") {
     search();
@@ -59,5 +60,28 @@ function search() {
   //change the html to show up as a search bar and show the users' game.
 }
 function displayUsers(pathway) {
+  console.log("indisplau");
+  console.log(pathway);
+  fetch(pathway, {
+    method: "GET",
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  })
+    .then((response) => response.json())
+    .then((json) => console.log(json));
   //do a get on the api and create div elements for all of the users,make a counter in order to put the rank and fill in all of the correct values in the correct div element already (maybe make it and reset it b/c of the search)
 }
+/**
+ * fetch("https://jsonplaceholder.typicode.com/todos", {
+  method: "POST",
+  body: JSON.stringify({
+    userId: 1,
+    title: "Fix my bugs",
+    completed: false
+  }),
+  headers: {
+    "Content-type": "application/json; charset=UTF-8"
+  }
+});
+ */
