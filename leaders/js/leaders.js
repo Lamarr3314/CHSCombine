@@ -27,9 +27,9 @@ let events = "overall";
 let genderSelector = document.getElementById("gender");
 genderSelector.onclick = function () {
   if (gender == "m" && genderSelector.value == "female") {
-    gender = "f";
+    gender = "w";
     showNormal(events, gender);
-  } else if (gender == "f" && genderSelector.value == "male") {
+  } else if (gender == "w" && genderSelector.value == "male") {
     gender = "m";
     showNormal(events, gender);
   }
@@ -62,16 +62,17 @@ function search() {
 function displayUsers(pathway) {
   console.log("indisplau");
   console.log(pathway);
-  fetch(pathway, {
-    method: "GET",
-    headers: {
-      "Content-type": "application/json; charset=UTF-8",
-    },
-  })
-    .then((response) => response.json())
-    .then((json) => console.log(json));
+  fetch(pathway).then(function(response) {
+    return response.json();
+  }).then(function(data) {
+    console.log(data);
+  }).catch(function(err) {
+    console.log('Fetch Error :-S', err);
+  });
+  
   //do a get on the api and create div elements for all of the users,make a counter in order to put the rank and fill in all of the correct values in the correct div element already (maybe make it and reset it b/c of the search)
 }
+
 /**
  * fetch("https://jsonplaceholder.typicode.com/todos", {
   method: "POST",
