@@ -48,31 +48,61 @@ function showNormal(events, gender) {
   if (events == "Overall") {
     pathway += "filterLeaderGender/" + gender;
     console.log(gender);
-    displayUsers(pathway);
+    getUserData(pathway);
   } else if (events == "search") {
     search();
   } else {
     pathway += "filterLeaders/" + gender + "/" + events;
-    displayUsers(pathway);
+    getUserData(pathway);
   }
 }
 function search() {
   //change the html to show up as a search bar and show the users' game.
 }
-function displayUsers(pathway) {
-  console.log("indisplau");
+function getUserData(pathway) {
   console.log(pathway);
-  fetch(pathway).then(function(response) {
-    return response.json();
-  }).then(function(data) {
-    console.log(data);
-  }).catch(function(err) {
-    console.log('Fetch Error :-S', err);
-  });
-  
+  fetch(pathway)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      showData(data);
+    })
+    .catch(function (err) {
+      console.log("Fetch Error :-S", err);
+    });
+
   //do a get on the api and create div elements for all of the users,make a counter in order to put the rank and fill in all of the correct values in the correct div element already (maybe make it and reset it b/c of the search)
 }
-
+function showData(data) {
+  let leaderBoard = document.getElementById("leaders");
+  console.log("IN SHOW DATA");
+  leaderBoard.innerHTML = "";
+  for (let x in data) {
+    let leader = data[x];
+    let glowLeader = document.createElement("div");
+    glowLeader.className = "glow-leader";
+    glowLeader.id = "scorer";
+    let rank = document.createElement("div");
+    rank.id = "rank";
+    rank.innerHTML = "<p>" + leader.id + "&emsp;</p>";
+    glowLeader.appendChild(rank);
+    let measure = document.createElement("div");
+    measure.id = "measure";
+    measure.innerHTML = "<p>" + leader.name + "</p>"; //TODO change to the leader measure, need to change the return type of the game
+    glowLeader.appendChild(measure);
+    let name = document.createElement("div");
+    name.id = "name";
+    name.innerHTML = "<p>" + leader.name + "</p>";
+    glowLeader.appendChild(name);
+    let points = document.createElement("div");
+    points.id = "points";
+    points.innerHTML = "<p>" + leader.score + "</p>";
+    glowLeader.appendChild(points);
+    leaderBoard.appendChild(glowLeader);
+    console.log(leader.id);
+  }
+}
 /**
  * fetch("https://jsonplaceholder.typicode.com/todos", {
   method: "POST",
