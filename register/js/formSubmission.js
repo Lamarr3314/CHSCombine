@@ -9,10 +9,10 @@ genderSelector.onclick = function () {
   console.log(gender);
 };
 let button = document.getElementById("submit");
-button.addEventListener("click", enterUser);
+button.addEventListener("click", checkUser);
 
 
-function enterUser() {
+function checkUser() {
   let names = document.getElementById("name_bar").value;
   let url = "http://localhost:9191/addUser";
   const data = {
