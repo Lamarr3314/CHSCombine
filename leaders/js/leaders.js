@@ -4,7 +4,6 @@ document.getElementById("arrow_right_img").onclick = function () {
 document.getElementById("arrow_left_img").onclick = function () {
   document.getElementById("categories").scrollBy(-220, 0);
 };
-let maxWith = 0;
 let maxHeight = 0;
 let url = "http://localhost:9191/";
 
@@ -20,6 +19,8 @@ window.addEventListener("load", function () {
     }
     document.getElementById("board").style.height = maxHeight - 250 + "px";
   }
+
+  getUserData("http://localhost:9191/filterLeaderGender/m");
 });
 let buttonList = document.querySelectorAll(".glow-on-hover");
 let gender = "m";
@@ -45,20 +46,34 @@ for (let i = 0; i < buttonList.length; i++) {
 }
 function showNormal(events, gender) {
   let pathway = url;
-  if (events == "Overall") {
+  console.log(events);
+  if (events == "overall") {
     pathway += "filterLeaderGender/" + gender;
-    console.log(gender);
     getUserData(pathway);
   } else if (events == "search") {
     search();
   } else {
     pathway += "filterLeaders/" + gender + "/" + events;
-    getUserData(pathway);
+    getGameData(pathway);
   }
 }
 function search() {
   //change the html to show up as a search bar and show the users' game.
 }
+function getGameData(pathway) {
+  console.log(pathway);
+  fetch(pathway)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      showGameData(data);
+    })
+    .catch(function (err) {
+      console.log("Fetch Error :-S", err);
+    });
+}
+
 function getUserData(pathway) {
   console.log(pathway);
   fetch(pathway)
@@ -66,18 +81,72 @@ function getUserData(pathway) {
       return response.json();
     })
     .then(function (data) {
-      showData(data);
+      showUserData(data);
     })
     .catch(function (err) {
       console.log("Fetch Error :-S", err);
     });
-
-  //do a get on the api and create div elements for all of the users,make a counter in order to put the rank and fill in all of the correct values in the correct div element already (maybe make it and reset it b/c of the search)
 }
-function showData(data) {
-  let leaderBoard = document.getElementById("leaders");
-  console.log("IN SHOW DATA");
-  leaderBoard.innerHTML = "";
+function userDataSetup() {
+  let board = document.getElementById("board");
+  board.innerHTML = "";
+  let direct = document.createElement("div");
+  direct.id = "direct";
+  let topRank = document.createElement("div");
+  topRank.id = "topRank";
+  topRank.innerHTML = "<p>Rank</p>";
+  direct.appendChild(topRank);
+  let topName = document.createElement("div");
+  topName.id = "topName";
+  topName.innerHTML = "<p>Name</p>";
+  direct.appendChild(topName);
+  let topScore = document.createElement("div");
+  topScore.id = "topScore";
+  topScore.innerHTML = "<p>Points</p>";
+  direct.appendChild(topScore);
+  let miniNav = document.createElement("div");
+  miniNav.id = "miniNav";
+  miniNav.appendChild(direct);
+  board.appendChild(miniNav);
+  let space = document.createElement("div");
+  space.id = "space";
+  board.appendChild(space);
+}
+function gameDataSetup() {
+  let board = document.getElementById("board");
+  board.innerHTML = "";
+  let direct = document.createElement("div");
+  direct.id = "direct";
+  let topRank = document.createElement("div");
+  topRank.id = "topRank";
+  topRank.innerHTML = "<p>Rank</p>";
+  direct.appendChild(topRank);
+  let topMeasure = document.createElement("div");
+  topMeasure.id = "topMeasure";
+  topMeasure.innerHTML = "<p>Measure</p>";
+  direct.appendChild(topMeasure);
+  let topName = document.createElement("div");
+  topName.id = "topName";
+  topName.innerHTML = "<p>Name</p>";
+  direct.appendChild(topName);
+  let topScore = document.createElement("div");
+  topScore.id = "topScore";
+  topScore.innerHTML = "<p>Points</p>";
+  direct.appendChild(topScore);
+  let miniNav = document.createElement("div");
+  miniNav.id = "miniNav";
+  miniNav.appendChild(direct);
+  board.appendChild(miniNav);
+  let space = document.createElement("div");
+  space.id = "space";
+  board.appendChild(space);
+}
+function showGameData(data) {
+  gameDataSetup();
+  let board = document.getElementById("board");
+  let leaderBoard = document.createElement("div");
+  leaderBoard.id = "leaders";
+  let index = 1;
   for (let x in data) {
     let leader = data[x];
     let glowLeader = document.createElement("div");
@@ -85,11 +154,11 @@ function showData(data) {
     glowLeader.id = "scorer";
     let rank = document.createElement("div");
     rank.id = "rank";
-    rank.innerHTML = "<p>" + leader.id + "&emsp;</p>";
+    rank.innerHTML = "<p>" + index + "&emsp;</p>";
     glowLeader.appendChild(rank);
     let measure = document.createElement("div");
     measure.id = "measure";
-    measure.innerHTML = "<p>" + leader.name + "</p>"; //TODO change to the leader measure, need to change the return type of the game
+    measure.innerHTML = "<p>" + leader.measure + "</p>";
     glowLeader.appendChild(measure);
     let name = document.createElement("div");
     name.id = "name";
@@ -101,7 +170,38 @@ function showData(data) {
     glowLeader.appendChild(points);
     leaderBoard.appendChild(glowLeader);
     console.log(leader.id);
+    index++;
   }
+  board.appendChild(leaderBoard);
+}
+function showUserData(data) {
+  userDataSetup();
+  let board = document.getElementById("board");
+  let leaderBoard = document.createElement("div");
+  leaderBoard.id = "leaders";
+  let index = 1;
+  for (let x in data) {
+    let leader = data[x];
+    let glowLeader = document.createElement("div");
+    glowLeader.className = "glow-leader";
+    glowLeader.id = "scorer";
+    let rank = document.createElement("div");
+    rank.id = "rank";
+    rank.innerHTML = "<p>" + index + "&emsp;</p>";
+    glowLeader.appendChild(rank);
+    let name = document.createElement("div");
+    name.id = "name";
+    name.innerHTML = "<p>" + leader.name + "</p>";
+    glowLeader.appendChild(name);
+    let points = document.createElement("div");
+    points.id = "points";
+    points.innerHTML = "<p>" + leader.score + "</p>";
+    glowLeader.appendChild(points);
+    leaderBoard.appendChild(glowLeader);
+    console.log(leader.id);
+    index++;
+  }
+  board.appendChild(leaderBoard);
 }
 /**
  * fetch("https://jsonplaceholder.typicode.com/todos", {
