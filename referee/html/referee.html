@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: #1d1d16" ;>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CHS Combine</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="../../images/JustHorseFAVICON.png"
+    />
+    <link rel="stylesheet" href="../css/registerButton.css" />
+    <link rel="stylesheet" href="../../generic/navBar.css" />
+    <link rel="stylesheet" href="../css/referee.css" />
+    <script defer src="../../generic/nonIndexNavBar.js"></script>
+    <script defer src="../../register/js/refereeFormSubmission.js"></script>
+    <script defer src="../../register/js/referee.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cardo&family=Old+Standard+TT&family=Sono:wght@300&family=Urbanist:wght@300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body style="margin: 0">
+    <div id="player_id_container">
+        <img src="../../images/player_id_image.png" alt="Player ID" id="player_id_image">
+    </div>
+    <div class="glow-table">
+      <input type="text" id="name_bar" />
+    </div>
+    <div id="id_feedback_container">
+        <p id="id_feedback">No user with that ID</p>
+    </div>
+    <div id="player_event_container">
+        <img src="../../images/eventImage.png" alt="Event" id="player_event">
+    </div>
+    <div class="glow-table" id="genderBox">
+      <select name="gender" id="gender">
+        <option value="pull_ups">Pull Ups</option>
+        <option value="plank">Plank</option>
+        <option value="dips">Dips</option>
+        <option value="push_ups">Push Ups</option>
+        <option value="40_yard">40 Yard</option>
+        <option value="shuttle">Shuttle</option>
+        <option value="jump">Jump</option>
+      </select>
+    </div>
+    <div id="event_feedback_container">
+        <p id="event_feedback">That user has already played one game</p>
+    </div>
+    <button class="glowing-btn" type="submit" id="submit" name="submit">
+      <span class="glowing-txt">CON<span class="faulty-letter">TIN</span>UE</span>
+    </button>
+  </body>
+</html>
