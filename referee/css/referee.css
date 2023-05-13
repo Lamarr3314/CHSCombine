@@ -292,3 +292,51 @@ select:hover {
   color: #e77b00;
   font-family: "Cardo", sans-serif;
 }
+.container {
+  width: 100%;
+  position: absolute;
+}
+.timerDisplay {
+  margin-top: 80px;
+  position: relative;
+  width: 80%;
+  padding: 13px 0;
+  font-family: "Roboto mono", monospace;
+  color: #e77b00;
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 344px;
+  box-shadow: 0 0 20px #e78700;
+  margin-left: 10%;
+}
+.buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+.buttons button {
+  width: 120px;
+  height: 56px;
+  color: #ffffff;
+  border: none;
+  font-family: "Cardo", sans-serif;
+  font-size: 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 42px;
+  outline: none;
+}
+.buttons button:nth-last-child(2) {
+  background-color: rgb(83, 81, 81);
+  box-shadow: 0 0 5px #e78700;
+}
+.buttons button:nth-last-child(1) {
+  background-color: #e75100;
+  box-shadow: 0 0 5px #e78700;
+}

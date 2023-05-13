@@ -51,7 +51,6 @@ function checkUser() {
         }
       })
       .catch(function (err) {
-        // console.log("Fetch Error :-S", err);
         alert("Please see Lamarr for support");
       });
   }
@@ -127,7 +126,7 @@ function goodFirst(data) {
 function goodSecond() {
   document.getElementById("feedbackImg").src = "../../images/checkBox.png";
   document.getElementById("mainContainer").innerHTML = "";
-  createCounter();
+  createStopWatch();
 }
 function createStopWatch() {
   baseCreateStopWatch();
@@ -138,3 +137,4 @@ function createTimer() {
 function createCounter() {
   baseCreateCounter();
 }
+

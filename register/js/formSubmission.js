@@ -11,7 +11,6 @@ genderSelector.onclick = function () {
 let button = document.getElementById("submit");
 button.addEventListener("click", checkUser);
 
-
 function checkUser() {
   let names = document.getElementById("name_bar").value;
   let url = "http://localhost:9191/addUser";
