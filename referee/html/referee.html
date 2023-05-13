@@ -23,26 +23,31 @@
     />
   </head>
   <body style="margin: 0">
-    <div id="player_id_container">
-      <img
-        src="../../images/player_id_image.png"
-        alt="Player ID"
-        id="player_id_image"
-      />
+    <div id="title">
+      <h1 id="titleChar"></h1>
     </div>
-    <div id="step_1_fill">
-      <div class="glow-table">
-        <input type="text" id="name_bar" />
+    <div id="mainContainer">
+      <div id="player_id_container">
+        <img
+          src="../../images/player_id_image.png"
+          alt="Player ID"
+          id="player_id_image"
+        />
       </div>
-      <div id="checkBoxContainer">
-        <img src="../../images/xBox.png" alt="NO" id = "checkBox">
+      <div id="step_1_fill">
+        <div class="glow-table">
+          <input type="text" id="name_bar" />
+        </div>
+        <div id="checkBoxContainer">
+          <img src="../../images/xBox.png" alt="NO" id="checkBox" />
+        </div>
       </div>
-    </div>
-    <!-- <div id="player_event_container">
+      <div id="spaceContainer"></div>
+      <!-- <div id="player_event_container">
         <img src="../../images/eventImage.png" alt="Event" id="player_event">
     </div> -->
-    <!-- <div class="glow-table" id="genderBox">
-      <select name="gender" id="gender">
+      <!-- <div class="glow-table" id="eventBox">
+      <select name="event" id="event">
         <option value="pull_ups">Pull Ups</option>
         <option value="plank">Plank</option>
         <option value="dips">Dips</option>
@@ -52,10 +57,11 @@
         <option value="jump">Jump</option>
       </select>
     </div> -->
-    <button class="glowing-btn" type="submit" id="submit" name="submit">
-      <span class="glowing-txt"
-        >CON<span class="faulty-letter">TIN</span>UE</span
-      >
-    </button>
+      <button class="glowing-btn" type="submit" id="submit" name="submit">
+        <span class="glowing-txt"
+          >CON<span class="faulty-letter">TIN</span>UE</span
+        >
+      </button>
+    </div>
   </body>
 </html>
