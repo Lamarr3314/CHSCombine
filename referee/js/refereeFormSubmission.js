@@ -1,13 +1,9 @@
 let pastFirst = false;
 let pastSecond = false;
-// genderSelector.onclick = function () {
-//   if (genders == "m" && genderSelector.value == "female") {
-//     genders = "w";
-//   } else if (gender == "w" && genderSelector.value == "male") {
-//     genders = "m";
-//   }
-//   console.log(gender);
-// };
+import { baseCreateCounter } from "../js/referee.js";
+import { baseCreateTimer } from "../js/referee.js";
+import { baseCreateStopWatch } from "../js/referee.js";
+
 let button = document.getElementById("submit");
 button.addEventListener("click", checkUser);
 let userId;
@@ -128,7 +124,17 @@ function goodFirst(data) {
   eventFeedback.appendChild(feedback);
   spaceContainer.appendChild(eventFeedback);
 }
-function goodSecond(){
-  document.getElementById("feedbackImg").src ="../../images/checkBox.png";
-  document.getElementById("mainContainer").innerHTML="";
+function goodSecond() {
+  document.getElementById("feedbackImg").src = "../../images/checkBox.png";
+  document.getElementById("mainContainer").innerHTML = "";
+  createCounter();
+}
+function createStopWatch() {
+  baseCreateStopWatch();
+}
+function createTimer() {
+  baseCreateTimer(4);
+}
+function createCounter() {
+  baseCreateCounter();
 }

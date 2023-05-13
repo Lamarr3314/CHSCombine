@@ -201,3 +201,6 @@
     opacity: 1;
   }
 }
+.glowing-txt p{
+  width: 100px;
+}
