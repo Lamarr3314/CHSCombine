@@ -126,15 +126,15 @@ function goodFirst(data) {
 function goodSecond() {
   document.getElementById("feedbackImg").src = "../../images/checkBox.png";
   document.getElementById("mainContainer").innerHTML = "";
-  createStopWatch();
+  //   createStopWatch();
+  createTimer();
 }
 function createStopWatch() {
-  baseCreateStopWatch();
+  baseCreateStopWatch(userEvent, userId);
 }
 function createTimer() {
-  baseCreateTimer(4);
+  baseCreateTimer(userEvent, userId);
 }
 function createCounter() {
   baseCreateCounter();
 }
-

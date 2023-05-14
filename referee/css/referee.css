@@ -340,3 +340,26 @@ select:hover {
   background-color: #e75100;
   box-shadow: 0 0 5px #e78700;
 }
+#timeDisplayStop {
+  width: 90px;
+  height: 60px;
+}
+#fullTimeContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-self: center;
+}
+#addButton,
+#minusButton {
+  margin-top: 10px;
+  width: 100px;
+  margin-top: 60px;
+  border-radius: 100px;
+  box-shadow: 0 0 5px #e78700;
+}
+#addButton:active,
+#minusButton:active {
+  box-shadow: 0 0 5px #e78700;
+  background-color: #e78700;
+}
