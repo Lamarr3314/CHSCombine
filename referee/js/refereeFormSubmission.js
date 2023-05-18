@@ -104,11 +104,11 @@ function goodFirst(data) {
   fortyOption.innerHTML = "40 Yard";
   event.appendChild(fortyOption);
   let shuttleOption = document.createElement("option");
-  shuttleOption.value = "shuttle";
+  shuttleOption.value = "shuttle_drill";
   shuttleOption.innerHTML = "Shuttle";
   event.appendChild(shuttleOption);
   let jumpOption = document.createElement("option");
-  jumpOption.value = "jump";
+  jumpOption.value = "broad_jump";
   jumpOption.innerHTML = "Jump";
   event.appendChild(jumpOption);
   eventBox.appendChild(event);
@@ -126,8 +126,23 @@ function goodFirst(data) {
 function goodSecond() {
   document.getElementById("feedbackImg").src = "../../images/checkBox.png";
   document.getElementById("mainContainer").innerHTML = "";
-  //   createStopWatch();
-  createTimer();
+  if (
+    userEvent == "40_yard" ||
+    userEvent == "shuttle_drill" ||
+    userEvent == "plank"
+  ) {
+    createStopWatch();
+  } else if (
+    userEvent == "pull_ups" ||
+    userEvent == "dips" ||
+    userEvent == "push_ups"
+  ) {
+    createTimer();
+  } else if (userEvent == "broad_jump") {
+    createCounter();
+  } else {
+    alert("Something is wrong with the dropdown value selected");
+  }
 }
 function createStopWatch() {
   baseCreateStopWatch(userEvent, userId);

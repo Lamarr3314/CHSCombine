@@ -309,7 +309,7 @@ select:hover {
   justify-content: space-around;
   border-radius: 344px;
   box-shadow: 0 0 20px #e78700;
-  margin-left: 10%;
+  /* margin-left: 10%; */
 }
 .buttons {
   width: 100%;
@@ -349,6 +349,7 @@ select:hover {
   flex-direction: row;
   justify-content: space-around;
   align-self: center;
+  margin-top: -80px;
 }
 #addButton,
 #minusButton {
@@ -362,4 +363,10 @@ select:hover {
 #minusButton:active {
   box-shadow: 0 0 5px #e78700;
   background-color: #e78700;
+}
+#counterHeader {
+  text-align: center;
+  font-size: 40px;
+  color: #e77b00;
+  font-family: "Cardo", sans-serif;
 }

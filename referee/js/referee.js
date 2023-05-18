@@ -65,8 +65,9 @@ export function baseCreateTimer(events, id) {
   timerRef.innerHTML = "60";
 
   document.getElementById("startTimer").addEventListener("click", () => {
+    countdownTimer();
     if (int !== null) {
-      clearInterval(int);
+      clearInterval(int, timerRef);
     }
     if (!stopped) {
       int = setInterval(displayTimer, 10);
@@ -150,12 +151,18 @@ export function baseCreateStopWatch(events, id) {
     if (!stopped) {
       clearInterval(int);
       startTimer.innerHTML = "Start";
+      let startTime = new Date();
     } else {
       int = setInterval(displayTimer, 10);
       startTimer.innerHTML = "Stop";
     }
     stopped = !stopped;
   });
+  console.log(stopped);
+  if (stopped) {
+    console.log("STOPPED");
+    console.log(startTimer.getSeconds() + ":" + startTimer.getMilliSeconds());
+  }
 
   document.getElementById("resetTimer").addEventListener("click", () => {
     clearInterval(int);
@@ -227,7 +234,7 @@ function scoringAlgorithm(score, event) {
       max = 40;
       break;
     case "40_yard":
-      max = 5;
+      max = 4.2;
       break;
     case "plank":
       max = 210;
@@ -250,4 +257,31 @@ function scoringAlgorithm(score, event) {
     finalScore = 0;
   }
   return Math.floor(finalScore);
+}
+function countdownTimer() {
+  var seconds = 59;
+
+  var timer = setInterval(function () {
+    seconds--;
+    document.getElementById("timeDisplayStop").innerHTML = "" + seconds;
+
+    if (seconds <= 0) {
+      clearInterval(timer);
+      console.log("Countdown finished!");
+    }
+  }, 1000);
+}
+function stopWatchTimer() {
+  var seconds = 0;
+  var milliseconds = 0;
+
+  var timer = setInterval(function () {
+    seconds--;
+    document.getElementById("timeDisplayStop").innerHTML = "" + seconds;
+
+    if (seconds <= 0) {
+      clearInterval(timer);
+      console.log("Countdown finished!");
+    }
+  }, 1000);
 }
