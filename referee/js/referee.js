@@ -184,7 +184,7 @@ export function baseCreateStopWatch(events, id) {
   );
 }
 function addGame(scores, names, measures, id) {
-  let url = "http://ec2-3-83-40-202.compute-1.amazonaws.com:9191/addGame";
+  let url = "http://ec2-44-211-210-253.compute-1.amazonaws.com:9191/addGame";
   var d = new Date();
   const data = {
     score: scores,
