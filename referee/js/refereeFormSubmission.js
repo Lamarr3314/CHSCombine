@@ -11,7 +11,7 @@ let userEvent;
 function checkUser() {
   if (!pastFirst) {
     let names = document.getElementById("name_bar").value;
-    let url = "http://localhost:9191/UserById/" + names;
+    let url = "http://ec2-3-83-40-202.compute-1.amazonaws.com:9191/UserById/" + names;
     fetch(url)
       .then(function (response) {
         return response.json();
@@ -35,7 +35,7 @@ function checkUser() {
   if (pastFirst) {
     let eventSelector = document.getElementById("event");
     userEvent = eventSelector.value;
-    let url = "http://localhost:9191/gameCount/" + userId + "/" + userEvent;
+    let url = "http://ec2-3-83-40-202.compute-1.amazonaws.com:9191/gameCount/" + userId + "/" + userEvent;
     fetch(url)
       .then(function (response) {
         return response.json();
