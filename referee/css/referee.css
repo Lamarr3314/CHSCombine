@@ -353,9 +353,8 @@ select:hover {
 }
 #addButton,
 #minusButton {
-  margin-top: 10px;
-  width: 100px;
-  margin-top: 60px;
+  width: 50px;
+  margin-top: 98px;
   border-radius: 100px;
   box-shadow: 0 0 5px #e78700;
 }

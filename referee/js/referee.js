@@ -1,6 +1,8 @@
 export function baseCreateCounter() {
   //use for broad jump only
 }
+var timer;
+var stopWatchTime;
 export function baseCreateTimer(events, id) {
   let count = 0;
   let stopped = true;
@@ -60,56 +62,64 @@ export function baseCreateTimer(events, id) {
     count--;
     counterHeader.innerHTML = count;
   };
-  let [milliseconds, seconds] = [0, 60];
-  let int = null;
   timerRef.innerHTML = "60";
 
   document.getElementById("startTimer").addEventListener("click", () => {
-    countdownTimer();
-    if (int !== null) {
-      clearInterval(int, timerRef);
-    }
     if (!stopped) {
-      int = setInterval(displayTimer, 10);
-      clearInterval(int);
       startTimer.innerHTML = "Start";
       startTimer.style.backgroundColor = "#e75100";
       count = 0;
       counterHeader.innerHTML = count;
+      stopTimer();
     } else {
-      clearInterval(int);
+      startCountTimer();
       count = 0;
-      counterHeader.innerHTML = count;
-      [milliseconds, seconds] = [0, 60];
-      timerRef.innerHTML = "60";
       startTimer.innerHTML = "Reset";
       startTimer.style.backgroundColor = "rgb(83, 81, 81)";
+      counterHeader.innerHTML = count;
     }
     stopped = !stopped;
   });
 
-  function displayTimer() {
-    milliseconds -= 10;
-    if (milliseconds <= 0) {
-      milliseconds = 1000;
-      seconds--;
+  document.getElementById("submit").addEventListener("click", () => {
+    addGame(scoringAlgorithm(count, events), events, count + " reps", id);
+    console.log(events);
+  });
+}
+function startCountTimer() {
+  let seconds = 59;
+
+  timer = setInterval(function () {
+    seconds--;
+    document.getElementById("timeDisplayStop").innerHTML = "" + seconds;
+
+    if (seconds <= 0) {
+      stopTimer();
+      console.log("Countdown finished!");
     }
-    // let s = seconds < 10 ? "0" + seconds : seconds;
-    let s = seconds;
-    // let ms = milliseconds;
-    let ms = milliseconds >= 100 ? milliseconds / 10 : milliseconds; //TODO: Timer Does NOT WORK oof.
+  }, 1000);
+}
+function stopTimer() {
+  clearInterval(timer);
+}
 
-    timerRef.innerHTML = ` ${s}`;
-  }
+function startStopWatchTimer() {
+  let seconds = 0;
+  let milliseconds = 0;
 
-  glowingButton.addEventListener("click", () =>
-    addGame(
-      scoringAlgorithm(seconds + milliseconds / 1000, events),
-      events,
-      seconds + milliseconds / 1000 + " seconds",
-      id
-    )
-  );
+  timer = setInterval(function () {
+    milliseconds += 10;
+    document.querySelector(".timerDisplay").innerHTML =
+      "" + seconds + ":" + milliseconds / 10;
+    if (milliseconds >= 1000) {
+      seconds++;
+      milliseconds = 0;
+    }
+    stopWatchTime = seconds + milliseconds / 1000;
+  }, 10);
+}
+function stopStopWatchTimer() {
+  clearInterval(timer);
 }
 export function baseCreateStopWatch(events, id) {
   let stopped = true;
@@ -118,6 +128,7 @@ export function baseCreateStopWatch(events, id) {
   container.className = "container";
   mainContainer.appendChild(container);
   let timerRef = document.createElement("div");
+  timerRef.style.marginLeft = "10%";
   timerRef.className = "timerDisplay";
   container.appendChild(timerRef);
   let buttons = document.createElement("div");
@@ -140,20 +151,14 @@ export function baseCreateStopWatch(events, id) {
   container.appendChild(buttons);
   container.appendChild(glowingButton);
 
-  let [milliseconds, seconds] = [0, 0];
-  let int = null;
   timerRef.innerHTML = "00 : 00 ";
 
   document.getElementById("startTimer").addEventListener("click", () => {
-    if (int !== null) {
-      clearInterval(int);
-    }
     if (!stopped) {
-      clearInterval(int);
+      stopStopWatchTimer();
       startTimer.innerHTML = "Start";
-      let startTime = new Date();
     } else {
-      int = setInterval(displayTimer, 10);
+      startStopWatchTimer();
       startTimer.innerHTML = "Stop";
     }
     stopped = !stopped;
@@ -161,32 +166,19 @@ export function baseCreateStopWatch(events, id) {
   console.log(stopped);
   if (stopped) {
     console.log("STOPPED");
-    console.log(startTimer.getSeconds() + ":" + startTimer.getMilliSeconds());
   }
 
   document.getElementById("resetTimer").addEventListener("click", () => {
-    clearInterval(int);
-    [milliseconds, seconds] = [0, 0];
+    stopStopWatchTimer();
     timerRef.innerHTML = "00 : 00 ";
+    stopWatchTime = 0;
   });
-
-  function displayTimer() {
-    milliseconds += 10;
-    if (milliseconds == 1000) {
-      milliseconds = 0;
-      seconds++;
-    }
-    let s = seconds < 10 ? "0" + seconds : seconds;
-    let ms = milliseconds >= 100 ? milliseconds / 10 : milliseconds; //TODO: Timer Does NOT WORK oof.
-
-    timerRef.innerHTML = ` ${s} : ${ms}`;
-  }
 
   glowingButton.addEventListener("click", () =>
     addGame(
-      scoringAlgorithm(seconds + milliseconds / 1000, events),
+      scoringAlgorithm(stopWatchTime, events),
       events,
-      seconds + milliseconds / 1000 + " seconds",
+      stopWatchTime + " seconds",
       id
     )
   );
@@ -257,31 +249,4 @@ function scoringAlgorithm(score, event) {
     finalScore = 0;
   }
   return Math.floor(finalScore);
-}
-function countdownTimer() {
-  var seconds = 59;
-
-  var timer = setInterval(function () {
-    seconds--;
-    document.getElementById("timeDisplayStop").innerHTML = "" + seconds;
-
-    if (seconds <= 0) {
-      clearInterval(timer);
-      console.log("Countdown finished!");
-    }
-  }, 1000);
-}
-function stopWatchTimer() {
-  var seconds = 0;
-  var milliseconds = 0;
-
-  var timer = setInterval(function () {
-    seconds--;
-    document.getElementById("timeDisplayStop").innerHTML = "" + seconds;
-
-    if (seconds <= 0) {
-      clearInterval(timer);
-      console.log("Countdown finished!");
-    }
-  }, 1000);
 }
