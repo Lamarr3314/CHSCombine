@@ -13,7 +13,7 @@ button.addEventListener("click", checkUser);
 
 function checkUser() {
   let names = document.getElementById("name_bar").value;
-  let url = "http://ec2-3-83-40-202.compute-1.amazonaws.com:9191/addUser";
+  let url = "http://ec2-44-211-210-253.compute-1.amazonaws.com:9191/addUser";
   const data = {
     gender: genders,
     name: names,
