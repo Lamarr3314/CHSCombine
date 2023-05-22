@@ -3,12 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="upgrade-insecure-requests"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CHS Combine</title>
     <link rel="icon" type="image/x-icon" href="images/JustHorseFAVICON.png" />
     <link rel="stylesheet" href="generic/navBar.css" />
+    <link rel="stylesheet" href="index.css" />
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12" defer></script>
     <script defer src="generic/navBar.js"></script>
+    <script defer src="index.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cardo&family=Old+Standard+TT&family=Sono:wght@300&family=Urbanist:wght@300&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div id="navBar">
@@ -18,22 +28,65 @@
       </div>
       <div id="leaderboard"><img alt="" id="leaderboardImg" /></div>
     </div>
-    <h1>
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores vero
-      aliquam beatae, ab totam, aspernatur nisi adipisci quibusdam nostrum hic
-      ullam accusantium eum numquam ut minima distinctio expedita? Cumque,
-      pariatur.
-    </h1>
-    <h1>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis
-      praesentium earum illo debitis beatae eum repellendus. Tempore beatae
-      libero officiis reprehenderit veritatis, laudantium veniam aspernatur?
-      Natus sed error consequatur laudantium.
-    </h1>
-    <iframe
-      width="560"
-      height="315"
-      src="https://www.youtube.com/embed/oANKpylufR0"
-    ></iframe>
+    <div id="spaceTop"></div>
+
+    <!-- <div id="scrollingDivs">
+      <div class="glow-on-hover">
+        <div id="introTitle">
+          <h2></h2>
+        </div>
+      </div>
+      <div class="glow-on-hover"></div>
+      <div class="glow-on-hover"></div>
+      <div class="glow-on-hover"></div>
+      <div class="glow-on-hover"></div>
+      <div class="glow-on-hover">
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/oANKpylufR0"
+        ></iframe>
+      </div>
+    </div> -->
+    <div id="categories">
+      <div id="c_Individual">
+        <div class="glow-on-hover">
+          <h2 id="introText">Introducing the <span class="auto-type"></span></h2>
+        </div>
+      </div>
+      <div id="c_pull_ups">
+        <div class="glow-on-hover"><h1>Pull Ups</h1></div>
+      </div>
+      <div id="c_pull_ups">
+        <div class="glow-on-hover"><h1>Plank</h1></div>
+      </div>
+      <div id="c_dips">
+        <div class="glow-on-hover"><h1>Dips</h1></div>
+      </div>
+      <div id="c_push_ups">
+        <div class="glow-on-hover"><h1>Push Ups</h1></div>
+      </div>
+      <div id="c_40_yd">
+        <div class="glow-on-hover"><h1>40 yard</h1></div>
+      </div>
+
+      <div id="c_shuttle">
+        <div class="glow-on-hover">
+          <h1>Shuttle</h1>
+        </div>
+      </div>
+      <div id="c_drills">
+        <div class="glow-on-hover"><h1>Jump</h1></div>
+      </div>
+      <div id="c_drills">
+        <div class="glow-on-hover"><h1>Search</h1></div>
+      </div>
+    </div>
+    <div class="glow-select" id="genderBox">
+      <select name="gender" id="gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+    </div>
   </body>
 </html>

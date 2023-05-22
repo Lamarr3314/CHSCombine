@@ -1,0 +1,211 @@
+#spaceTop {
+  height: 100px;
+}
+#introTitle h2 {
+  text-align: center;
+  font-size: 28px;
+  color: #e77b00;
+  font-family: "Cardo", sans-serif;
+}
+#scrollingDivs {
+  width: 200%;
+  display: flex;
+  flex-direction: row;
+  scroll-snap-type: x proximity;
+  overflow-x: scroll;
+  scroll-padding: 1000px;
+}
+#scrollingDivs div {
+  scroll-snap-align: center;
+}
+.glow-on-hover:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    /* #ff0000,
+      #ff7300,
+      #fffb00,
+      #48ff00,
+      #00ffd5,
+      #002bff,
+      #7a00ff,
+      #ff00c8,
+      #ff0000 */
+      #e85100,
+    #e75100,
+    #e77b00,
+    #e7a200,
+    #e7a600,
+    #c4e700,
+    #e86800,
+    #e78700,
+    #e77000e8
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 100px;
+}
+
+.glow-on-hover:active {
+  color: #1d1d16;
+}
+
+.glow-on-hover:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #1d1d16;
+  left: 0;
+  top: 0;
+  border-radius: 100px;
+}
+#introTitle h2 {
+  width: 100%;
+}
+#introTitle {
+  width: 100%;
+}
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+.glow-on-hover:before {
+  opacity: 1;
+}
+.glow-on-hover {
+  width: 900px;
+  height: 400px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #1d1d16;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 100px;
+}
+
+.glow-on-hover:checked {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    /* #ff0000,
+        #ff7300,
+        #fffb00,
+        #48ff00,
+        #00ffd5,
+        #002bff,
+        #7a00ff,
+        #ff00c8,
+        #ff0000 */
+      #e85100,
+    #e75100,
+    #e77b00,
+    #e7a200,
+    #e7a600,
+    #c4e700,
+    #e86800,
+    #e78700,
+    #e77000e8
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 100px;
+}
+
+.glow-on-hover:active {
+  color: #1d1d16;
+}
+
+.glow-on-hover:hover:before {
+  opacity: 1;
+}
+
+.glow-on-hover:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #1d1d16;
+  left: 0;
+  top: 0;
+  border-radius: 100px;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.glow-select {
+  width: 40%;
+  height: 50px;
+  border: none;
+  outline: none;
+  background: #1d1d16;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+}
+.glow-select:focus {
+  border: none;
+  outline: none;
+}
+#categories div h1 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+body {
+  overflow-x: clip;
+  overflow-y: clip;
+}
+#categories {
+  display: flex;
+  overflow: scroll;
+  scroll-snap-type: x mandatory;
+}
+#categories::-webkit-scrollbar {
+  display: none;
+}
+#categories div {
+  margin-right: 120%;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  scroll-snap-align: center;
+}
