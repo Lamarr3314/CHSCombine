@@ -13,7 +13,7 @@
   flex-direction: row;
   scroll-snap-type: x proximity;
   overflow-x: scroll;
-  scroll-padding: 1000px;
+  scroll-padding: 0px;
 }
 #scrollingDivs div {
   scroll-snap-align: center;
@@ -91,8 +91,8 @@
   opacity: 1;
 }
 .glow-on-hover {
-  width: 900px;
-  height: 400px;
+  /* width: 250%;
+  height: 80%; */
   border: none;
   outline: none;
   color: #fff;
@@ -171,7 +171,6 @@
     background-position: 0 0;
   }
 }
-
 .glow-select {
   width: 40%;
   height: 50px;
@@ -203,9 +202,38 @@ body {
 #categories::-webkit-scrollbar {
   display: none;
 }
-#categories div {
-  margin-right: 120%;
+#categories div div {
   margin-top: 20px;
   margin-bottom: 30px;
   scroll-snap-align: center;
+}
+#categories div {
+  margin-right: 120%;
+}
+#categories div:nth-child(1) {
+  margin-left: 30%;
+  margin-right: 120%;
+}
+#introText {
+  margin-top: 0px;
+  padding-top: 4px;
+  text-align: center;
+  font-size: 400%;
+  color: #e77b00;
+  text-shadow: 1px 1px 2px red, 0 0 1em rgba(255, 255, 0, 0.299),
+    0 0 0.2em rgba(255, 255, 0, 0.258);
+}
+#innerLogo {
+  margin-top: -40px;
+}
+@media only screen and (max-width: 600px) {
+  .glow-on-hover:before {
+    border-radius: 50px;
+  }
+  .glow-on-hover:after {
+    border-radius: 50px;
+  }
+  .glow-on-hover {
+    border-radius: 50px;
+  }
 }
