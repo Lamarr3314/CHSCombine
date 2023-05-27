@@ -12,7 +12,7 @@
   display: flex;
   flex-direction: row;
   scroll-snap-type: x proximity;
-  overflow-x: scroll;
+  overflow-x: hidden;
   scroll-padding: 0px;
 }
 #scrollingDivs div {
@@ -186,17 +186,17 @@
   border: none;
   outline: none;
 }
-#categories div h1 {
+/* #categories div h1 {
   margin-top: 0px;
   margin-bottom: 0px;
-}
+} */
 body {
   overflow-x: clip;
   overflow-y: clip;
 }
 #categories {
   display: flex;
-  overflow: scroll;
+  overflow: hidden;
   scroll-snap-type: x mandatory;
 }
 #categories::-webkit-scrollbar {
@@ -236,4 +236,49 @@ body {
   .glow-on-hover {
     border-radius: 50px;
   }
+}
+#arrow_left_img,
+#arrow_right_img {
+  content: url("../../images/arrow-right\ \(3\).png");
+}
+@media screen {
+  #arrow_left_img:hover,
+  #arrow_right_img:hover {
+    content: url("../../images/arrow-right\ \(2\).png");
+  }
+}
+
+#arrow_left {
+  transform: rotate(180deg);
+  position: fixed;
+  z-index: 105;
+  top: 200px;
+}
+#arrow_right {
+  position: fixed;
+  z-index: 105;
+  right: 0;
+  top: 200px;
+}
+#pageNumber {
+  display: flex;
+  justify-content: center;
+}
+#pageNumberText {
+  font-size: 25px;
+}
+#secondSlide h1,
+#thirdSlide h1,
+#fourthSlide h1,
+#fifthSlide h1,
+#sixthSlide h1,
+#seventhSlide h1,
+#eighthSlide h1{
+  font-size: 200%;
+  padding-top: 20px;
+  margin-bottom: 10%;
+  margin-left: 5%;
+  color: #72593b;
+  font-family: "Cardo", sans-serif;
+  margin-right: 5%;
 }
