@@ -118,7 +118,7 @@ function loadPermissionSlip() {
   let eighthh1 = document.createElement("h1");
   eighthh1.id = "eighthh1";
   eighthh1.innerHTML =
-    "Event information, format, and guidelines will be shared with all participants. Please read and review the information before signin this permission slip."; //TODO make this a link to access the documents
+    "Event information, format, and guidelines will be shared with all participants. Please read and review the information before signing this permission slip."; //TODO make this a link to access the documents
   eighthLine.appendChild(eighthh1);
   slipContainer.appendChild(eighthLine);
   let readmeDiv = document.createElement("div");
@@ -365,28 +365,29 @@ function checkSubmission() {
   let goodString =
     "Press Submit to Register " + userInfo.user_name + " To the CHS Combine";
   var typed = new Typed(".auto-type", {
-    strings: [goodString],
+    strings: [goodString, "Or Refresh the Page to Redo Your Registration"],
     typeSpeed: 150,
     backSpeed: 150,
-    loop: false,
-    startDelay: 1500,
+    loop: true,
+    startDelay: 50,
     showCursor: true,
     onComplete: (self) => {
       delete self;
     },
   });
   document.getElementById("submit").onclick = function () {
-    console.log(userInfo);//checkuser, then delay, then submit post to permission slip based on the response to checkuser
+    checkUser();
   };
 }
 
 function checkUser() {
-  userInfo.user_name = document.getElementById("name_bar").value;
   let url = "https://chscombineapi.com/addUser";
   const data = {
-    gender: genders,
-    name: names,
+    gender: userInfo.user_gender,
+    name: userInfo.user_name,
     score: 0,
+    email: userInfo.student_id + "@cliftonschools.net",
+    has_permission_slip: 1,
   };
 
   fetch(url, {
@@ -404,10 +405,94 @@ function checkUser() {
     })
     .then((responseData) => {
       console.log("Response:", responseData);
-      // Do something with the response data
+      userInfo.user_id = responseData.id;
+      addPermissionSlip();
     })
     .catch((error) => {
       console.error("Error:", error);
       // Handle the error
     });
+}
+function addPermissionSlip() {
+  let url = "https://chscombineapi.com/addPermissionSlip";
+  const data = {
+    address_1: userInfo.address_1,
+    address_2: userInfo.address_2,
+    child_name: userInfo.child_name,
+    date_signed: userInfo.date_signed,
+    parent_name: userInfo.parent_name,
+    parent_signature: userInfo.parent_signature,
+    phone_1: userInfo.phone_1,
+    phone_2: userInfo.phone_2,
+    student_id: userInfo.student_id,
+    student_name: userInfo.student_name,
+    student_signature: userInfo.student_signature,
+    user_id: userInfo.user_id,
+  };
+
+  fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Error: " + response.status);
+      }
+      return response.json();
+    })
+    .then((responseData) => {
+      uploadingUser();
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      // Handle the error
+    });
+}
+function uploadingUser() {
+  setTimeout(function () {
+    doneUploading();
+  }, 7500);
+  let fillInForm = document.getElementById("fillInForm");
+  fillInForm.innerHTML = "";
+  let animationContainer = document.createElement("div");
+  animationContainer.id = "container";
+  animationContainer.innerHTML =
+    '<div class="dash uno"></div>  <div class="dash dos"></div><div class="dash tres"></div>  <div class="dash cuatro"></div>';
+  fillInForm.appendChild(animationContainer);
+}
+function doneUploading() {
+  let fillInForm = document.getElementById("fillInForm");
+  fillInForm.innerHTML = "";
+  let topMessageDiv = document.createElement("div");
+  topMessageDiv.id = "finalMessageDiv";
+  let topMessage = document.createElement("h1");
+  topMessage.id = "finalMessage";
+  topMessage.innerHTML = "Successfully Created Account";
+  topMessageDiv.appendChild(topMessage);
+  let middleImage = document.createElement("img");
+  middleImage.id = "middleImage";
+  middleImage.alt = "CHS Combine Image";
+  middleImage.src = "../../images/JustHorseFAVICON.png";
+  let bottomMessageDiv = document.createElement("div");
+  bottomMessageDiv.id = "bottomMessageDiv";
+  let first = document.createElement("a");
+  first.id = "first";
+  first.href = "https://chscombine.com";
+  first.innerHTML = "<h1>Learn More About the CHS Combine</h1>";
+  bottomMessageDiv.appendChild(first);
+  let second = document.createElement("h1");
+  second.id = "second";
+  second.innerHTML = "or";
+  bottomMessageDiv.appendChild(second);
+  let third = document.createElement("a");
+  third.href = "https://chscombine.com/leaders/html/leaders.html";
+  third.id = "third";
+  third.innerHTML = "<h1>Check out the Leaderboard</h1>";
+  bottomMessageDiv.appendChild(third);
+  fillInForm.appendChild(topMessageDiv);
+  fillInForm.appendChild(bottomMessageDiv);
+  fillInForm.appendChild(middleImage);
 }
