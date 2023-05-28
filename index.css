@@ -241,11 +241,9 @@ body {
 #arrow_right_img {
   content: url("../../images/arrow-right\ \(3\).png");
 }
-@media screen {
-  #arrow_left_img:hover,
-  #arrow_right_img:hover {
-    content: url("../../images/arrow-right\ \(2\).png");
-  }
+#arrow_left_img:hover,
+#arrow_right_img:hover {
+  content: url("../../images/arrow-right\ \(2\).png");
 }
 
 #arrow_left {
@@ -272,8 +270,7 @@ body {
 #fourthSlide h1,
 #fifthSlide h1,
 #sixthSlide h1,
-#seventhSlide h1,
-#eighthSlide h1{
+#eighthSlide h1 {
   font-size: 200%;
   padding-top: 20px;
   margin-bottom: 10%;
@@ -281,4 +278,40 @@ body {
   color: #72593b;
   font-family: "Cardo", sans-serif;
   margin-right: 5%;
+}
+#thanksList li {
+  font-size: 100%;
+  padding-top: -10px;
+  margin-left: 5%;
+  color: #72593b;
+  font-family: "Cardo", sans-serif;
+  margin-right: 5%;
+}
+a {
+  color: #e8510083;
+}
+#eventList li {
+  font-size: 150%;
+  padding-top: -10px;
+  margin-left: 5%;
+  color: #72593b;
+  font-family: "Cardo", sans-serif;
+  margin-right: 5%;
+}
+#scoringTest {
+  text-align: center;
+}
+#seventhSlide h1 {
+  font-size: 200%;
+  padding-top: 20px;
+  margin-left: 5%;
+  color: #72593b;
+  font-family: "Cardo", sans-serif;
+  margin-right: 5%;
+  text-align: center;
+}
+#promoVideo {
+  width: 40%;
+  height: 70%;
+  margin-left: 30%;
 }

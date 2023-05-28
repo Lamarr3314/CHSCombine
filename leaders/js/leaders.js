@@ -5,7 +5,7 @@ document.getElementById("arrow_left_img").onclick = function () {
   document.getElementById("categories").scrollBy(-220, 0);
 };
 let maxHeight = 0;
-let url = "http://ec2-44-211-210-253.compute-1.amazonaws.com:9191/";
+let url = "https://chscombineapi.com/";
 
 window.addEventListener("load", function () {
   for (let i = 0; i < 10000; i++) {
@@ -20,7 +20,7 @@ window.addEventListener("load", function () {
     document.getElementById("board").style.height = maxHeight - 250 + "px";
   }
 
-  getUserData("http://ec2-44-211-210-253.compute-1.amazonaws.com:9191/filterLeaderGender/m");
+  getUserData("https://chscombineapi.com/filterLeaderGender/m");
 });
 let buttonList = document.querySelectorAll(".glow-on-hover");
 let gender = "m";

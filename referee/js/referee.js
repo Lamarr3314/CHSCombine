@@ -184,7 +184,7 @@ export function baseCreateStopWatch(events, id) {
   );
 }
 function addGame(scores, names, measures, id) {
-  let url = "http://ec2-44-211-210-253.compute-1.amazonaws.com:9191/addGame";
+  let url = "https://chscombineapi.com/addGame";
   var d = new Date();
   const data = {
     score: scores,
