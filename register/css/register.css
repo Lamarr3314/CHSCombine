@@ -346,3 +346,8 @@ table tr:first-child td:last-child {
   color: #72593b;
   font-family: "Cardo", sans-serif;
 }
+@media only screen and (max-width: 600px) {
+  #slipContainer h1 {
+    font-size: 32px;
+  }
+}
