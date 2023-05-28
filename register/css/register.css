@@ -268,6 +268,81 @@
   font-family: "Cardo", sans-serif;
 }
 
-#gender:active, select:hover{
+#gender:active,
+select:hover {
   outline: none;
+}
+#slipContainer {
+  width: 80%;
+  margin-left: 5%;
+  margin-top: 132px;
+  border-radius: 42px;
+  border: 1px solid #e77b00;
+  box-shadow: 0 0 25px #e78700;
+  padding: 2%;
+  overflow-y: scroll;
+}
+
+#fillInForm {
+  margin-top: 150px;
+}
+#informationTable {
+  /* border-collapse: collapse; */
+  border-spacing: 0;
+  font-size: 0.9em;
+  font-family: "Cardo", sans-serif;
+  font-size: large;
+  width: 90%;
+  margin-left: 5%;
+  box-shadow: 0 0 20px rgb(221 58 58 / 15%);
+  text-align: center;
+  border-radius: 105px;
+}
+#informationTable tr {
+  width: 90%;
+}
+#informationTable td {
+  color: #e78700;
+  border: 1px solid #e77b0031;
+  font-size: 20px;
+}
+#informationTable input {
+  width: 90%;
+  background: transparent;
+  color: #e77b00;
+  font-size: large;
+  height: 80%;
+  text-align: center;
+}
+#informationTable {
+  height: 580px;
+  box-shadow: 0 0 25px #e78700;
+  border-radius: 40px;
+}
+
+table tr:last-child td:first-child {
+  border-bottom-left-radius: 40px;
+}
+
+table tr:last-child td:last-child {
+  border-bottom-right-radius: 40px;
+}
+table tr:first-child td:first-child {
+  border-top-left-radius: 40px;
+}
+
+table tr:first-child td:last-child {
+  border-top-right-radius: 40px;
+}
+#userText {
+  text-align: center;
+  color: #e77b00;
+  font-size: 25px;
+  font-family: "Cardo", sans-serif;
+  width: 80%;
+  margin-left: 10%;
+}
+#slipContainer {
+  color: #72593b;
+  font-family: "Cardo", sans-serif;
 }

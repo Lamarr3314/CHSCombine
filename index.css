@@ -236,10 +236,12 @@ body {
   .glow-on-hover {
     border-radius: 50px;
   }
+
 }
 #arrow_left_img,
 #arrow_right_img {
   content: url("../../images/arrow-right\ \(3\).png");
+  width: 60px;
 }
 #arrow_left_img:hover,
 #arrow_right_img:hover {
@@ -314,4 +316,18 @@ a {
   width: 40%;
   height: 70%;
   margin-left: 30%;
+}
+@media only screen and (max-width: 600px) {
+  #arrow_left_img, #arrow_right_img{
+    width: 40px;
+  }
+  #secondSlide h1{
+    font-size: 13px;
+  }
+  #fourthSlide h1{
+    margin-bottom: -5px;
+  }
+  #promoVideo{
+    width: 80%;
+  }
 }
