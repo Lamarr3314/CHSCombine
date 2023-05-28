@@ -322,13 +322,25 @@ a {
     width: 40px;
   }
   #secondSlide h1{
-    font-size: 23px;
+    font-size: 26px;
+  }
+  #thirdSlide h1{
+    font-size: 30px;
   }
   #fourthSlide h1{
     margin-bottom: -5px;
+    font-size: 32px;
+  }
+  #fifthSlide h1{
+    font-size: 32px;
+  }
+  #sixthSlide h1{
+    font-size: 30px;
+    margin-bottom: 0px;
   }
   #promoVideo{
     width: 80%;
     margin-left: 10%;
   }
+
 }
