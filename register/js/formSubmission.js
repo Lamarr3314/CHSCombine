@@ -4,9 +4,10 @@ let genders = "m";
 let maxWidths = 0;
 let maxHeight = 0;
 let names = "";
+let readDocument = false;
 let userInfo = {
   user_name: "",
-  user_gender: "",
+  user_gender: "m",
   child_name: "",
   student_id: "",
   student_signature: "",
@@ -17,21 +18,30 @@ let userInfo = {
   phone_1: "",
   address_1: "",
   phone_2: "",
-  addresss_2: "",
+  address_2: "",
 };
 
 genderSelector.onclick = function () {
   if (genders == "m" && genderSelector.value == "female") {
-    // genders = "w";
-    userInfo.user_gender = "w";
+    genders = "w";
+    userInfo.user_gender = genders;
   } else if (genders == "w" && genderSelector.value == "male") {
     // genders = "m";
-    userInfo.user_gender = "m";
+    userInfo.user_gender = genders;
   }
 };
 // let button = document.getElementById("submit");
 let nextButton = document.getElementById("next");
-nextButton.addEventListener("click", loadPermissionSlip);
+// nextButton.addEventListener("click", loadPermissionSlip);
+nextButton.onclick = function () {
+  let n = document.getElementById("name_bar").value;
+  if (n == "" || !n.includes(" ")) {
+    alert("please enter your full name");
+  } else {
+    userInfo.user_name = n;
+    loadPermissionSlip();
+  }
+};
 window.addEventListener("load", function () {
   for (let i = 0; i < 10000; i++) {
     if (window.matchMedia("(min-width: " + i + "px)").matches) {
@@ -47,7 +57,6 @@ window.addEventListener("load", function () {
 // button.addEventListener("click", checkUser);
 
 function loadPermissionSlip() {
-  userInfo.user_name = document.getElementById("name_bar").value;
   let fillInForm = document.getElementById("fillInForm");
   fillInForm.innerHTML = "";
   let slipContainer = document.createElement("div");
@@ -101,7 +110,7 @@ function loadPermissionSlip() {
   let seventhh1 = document.createElement("h1");
   seventhh1.id = "seventhh1";
   seventhh1.innerHTML =
-    "No child will ber permitted to participate in this event if the is not filled out by the parent or guardian and submitted before the event begins.";
+    "No child will be permitted to participate in this event if this is not filled out by the parent or guardian and submitted before the event begins.";
   seventhLine.appendChild(seventhh1);
   slipContainer.appendChild(seventhLine);
   let eighthLine = document.createElement("div");
@@ -115,7 +124,7 @@ function loadPermissionSlip() {
   let readmeDiv = document.createElement("div");
   readmeDiv.id = "readmeDiv";
   readmeDiv.innerHTML =
-    '<input type="checkbox" id="read" name="read" value="read"><label for="read"> I, ' +
+    '<input type="checkbox" id="read" name="read" ><label for="read"> I, ' +
     userInfo.user_name +
     "'s Parent/Guardian have read this document </label><br>";
   slipContainer.appendChild(readmeDiv);
@@ -128,7 +137,16 @@ function loadPermissionSlip() {
   fillInForm.appendChild(nextButtonDiv);
   document.getElementById("slipContainer").style.height =
     maxHeight - 300 + "px";
-  document.getElementById("next2").addEventListener("click", fillContantInfo);
+  document.getElementById("read").onclick = function () {
+    readDocument = !readDocument;
+  };
+  document.getElementById("next2").onclick = function () {
+    if (!readDocument) {
+      alert("Please verify that you have read the document");
+    } else {
+      fillContantInfo();
+    }
+  };
   nextButtonDiv.style.marginTop = "-30px";
 }
 function fillContantInfo() {
@@ -245,7 +263,7 @@ function fillContantInfo() {
   address_one_row.id = "address_one_row";
   let address_one_header = document.createElement("td");
   address_one_header.id = "address_one_header";
-  address_one_header.innerHTML = "Address Two";
+  address_one_header.innerHTML = "Address One";
   let address_one_entry = document.createElement("td");
   address_one_entry.id = "address_one_entry";
   let address_one_textBox = document.createElement("input");
@@ -297,7 +315,37 @@ function fillContantInfo() {
   nextButtonDiv.style.marginTop = "-30px";
   informationTable.style.height = maxHeight - 300 + "px";
 
-  document.getElementById("next3").addEventListener("click", checkSubmission);
+  document.getElementById("next3").onclick = function () {
+    let vals = [
+      student_id_textBox,
+      student_signature_textBox,
+      parent_name_textBox,
+      parent_signature_textBox,
+      date_signed_textBox,
+      phone_one_textBox,
+      address_one_textBox,
+    ];
+    let unchecked = 0;
+    for (let i = 0; i < vals.length; i++) {
+      if (vals[i].value == "") {
+        alert("Please fill out your " + vals[i].id);
+        unchecked++;
+      }
+    }
+    if (unchecked == 0) {
+      userInfo.child_name = userInfo.user_name;
+      userInfo.student_id = student_id_textBox.value;
+      userInfo.student_signature = student_signature_textBox.value;
+      userInfo.parent_name = parent_name_textBox.value;
+      userInfo.parent_signature = parent_signature_textBox.value;
+      userInfo.date_signed = date_signed_textBox.value;
+      userInfo.phone_1 = phone_one_textBox.value;
+      userInfo.address_1 = address_one_textBox.value;
+      userInfo.phone_2 = phone_two_textBox.value;
+      userInfo.address_2 = address_two_textBox.value;
+      checkSubmission();
+    }
+  };
 }
 
 function checkSubmission() {
@@ -321,14 +369,14 @@ function checkSubmission() {
     typeSpeed: 150,
     backSpeed: 150,
     loop: false,
-    startDelay: 2500,
+    startDelay: 1500,
     showCursor: true,
     onComplete: (self) => {
       delete self;
     },
   });
   document.getElementById("submit").onclick = function () {
-    console.log(userInfo);
+    console.log(userInfo);//checkuser, then delay, then submit post to permission slip based on the response to checkuser
   };
 }
 
