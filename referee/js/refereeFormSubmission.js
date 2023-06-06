@@ -151,5 +151,5 @@ function createTimer() {
   baseCreateTimer(userEvent, userId);
 }
 function createCounter() {
-  baseCreateCounter();
+  baseCreateCounter(userEvent, userId);
 }

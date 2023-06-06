@@ -1,5 +1,67 @@
-export function baseCreateCounter() {
-  //use for broad jump only
+export function baseCreateCounter(events, id) {
+  let mainContainer = document.getElementById("mainContainer");
+  let distance = 0;
+  let distanceDiv = document.createElement("div");
+  distanceDiv.id = "distanceDiv";
+  let distanceContainer = document.createElement("div");
+  distanceContainer.id = "distanceContainer";
+  let distanceText = document.createElement("h1");
+  distanceText.id = "distanceText";
+  distanceContainer.appendChild(distanceText);
+  let distanceChanger = document.createElement("div");
+  distanceChanger.id = "distanceChanger";
+  let increaseDiv = document.createElement("div");
+  increaseDiv.id = "increaseDiv";
+  let increaseImage = document.createElement("img");
+  increaseImage.id = "increaseImage";
+  increaseImage.src = "../../images/arrow-right (3).png";
+  increaseImage.style.transform = "rotate(-90deg)";
+  let decreaseDiv = document.createElement("div");
+  decreaseDiv.id = "decreaseDiv";
+  let decreaseImage = document.createElement("img");
+  decreaseImage.id = "decreaseImage";
+  decreaseImage.src = "../../images/arrow-right (3).png";
+  decreaseImage.style.transform = "rotate(90deg)";
+  decreaseDiv.appendChild(decreaseImage);
+  increaseDiv.appendChild(increaseImage);
+  distanceChanger.appendChild(increaseDiv);
+  distanceChanger.appendChild(decreaseDiv);
+  distanceChanger.style.display = "flexbox";
+
+  distanceDiv.appendChild(distanceContainer);
+  distanceDiv.appendChild(distanceChanger);
+
+  mainContainer.appendChild(distanceDiv);
+
+  distanceDiv.style.display = "flex";
+  distanceDiv.style.flexDirection = "row";
+  distanceDiv.style.justifyContent = "center";
+  distanceText.innerHTML = distance + "ft";
+
+  let glowingButton = document.createElement("button");
+  glowingButton.className = "glowing-btn";
+  glowingButton.type = "submit";
+  glowingButton.id = "submit";
+  glowingButton.name = "submit";
+  glowingButton.innerHTML =
+    '<span class="glowing-txt">SU<span class="faulty-letter">BM</span>IT</span>';
+  mainContainer.appendChild(glowingButton);
+
+  increaseDiv.onclick = function () {
+    distance += 0.1;
+    distance = Math.round(distance * 10) / 10;
+    distanceText.innerHTML = distance + "ft";
+  };
+  decreaseDiv.onclick = function () {
+    distance -= 0.1;
+    distance = Math.round(distance * 10) / 10;
+    distanceText.innerHTML = distance + "ft";
+  };
+
+  document.getElementById("submit").addEventListener("click", () => {
+    addGame(scoringAlgorithm(distance, events), events, distance + " feet", id);
+    console.log(events);
+  });
 }
 var timer;
 var stopWatchTime;
@@ -232,16 +294,19 @@ function scoringAlgorithm(score, event) {
       max = 210;
       break;
     case "jump":
-      max = 60;
+      max = 7;
       break;
-    case "shuttle":
-      max = 20;
+    case "shuttle_drill":
+      max = 10;
       break;
     default:
       max = null;
       break;
   }
   let finalScore = (score / max) * 100;
+  if (event == "40_yard" || event == "shuttle_drill") {
+    finalScore = (max / score) * 100;
+  }
   if (finalScore > 100) {
     finalScore = 100;
   }
